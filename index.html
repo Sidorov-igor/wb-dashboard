@@ -1,0 +1,533 @@
+<title>WB Оборот 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+<style>
+/* WB Revenue Dashboard 2026 — dark-first, monospace data, minimal chrome */
+:root {
+  /* dark palette */
+  --bg: #0d1018;
+  --bg-card: #161b28;
+  --bg-panel: #1c2234;
+  --border: #252d45;
+  --fg: #dde3f5;
+  --fg2: #7e8db0;
+  --fg3: #485070;
+  --accent: #4b82f5;
+  --good: #2ec97a;
+  --warn: #f0a020;
+  --danger: #e84545;
+  color-scheme: dark;
+
+  /* type */
+  --font-ui: 'Manrope', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f0f2f8;
+    --bg-card: #ffffff;
+    --bg-panel: #e8ebf4;
+    --border: #d0d6e8;
+    --fg: #0f1420;
+    --fg2: #3d4a6a;
+    --fg3: #8090b0;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f0f2f8;
+  --bg-card: #ffffff;
+  --bg-panel: #e8ebf4;
+  --border: #d0d6e8;
+  --fg: #0f1420;
+  --fg2: #3d4a6a;
+  --fg3: #8090b0;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px;
+}
+
+/* HEADER */
+.hdr {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.hdr-title { font-size: 20px; font-weight: 800; letter-spacing: -.3px; }
+.hdr-sub { font-size: 11px; color: var(--fg3); margin-top: 2px; }
+.hdr-right { text-align: right; }
+.hdr-date { font-size: 13px; font-weight: 700; }
+.hdr-upd { font-size: 10px; color: var(--fg3); margin-top: 2px; }
+.theme-btn {
+  background: var(--bg-panel); border: 1px solid var(--border); border-radius: 6px;
+  color: var(--fg2); cursor: pointer; font-size: 14px; padding: 4px 10px;
+  margin-top: 6px; font-family: inherit;
+}
+.theme-btn:hover { color: var(--fg); }
+
+/* TILES ROW */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.tile {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.tile-lbl {
+  font-size: 9px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .09em; color: var(--fg3); margin-bottom: 6px;
+}
+.tile-val {
+  font-family: var(--font-mono);
+  font-size: 22px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.tile-sub { font-size: 11px; font-weight: 600; margin-top: 4px; }
+.tile-note { font-size: 10px; color: var(--fg3); margin-top: 3px; font-family: var(--font-mono); }
+.g { color: var(--good); }
+.w { color: var(--warn); }
+.d { color: var(--danger); }
+
+/* GAUGE */
+.gauge-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.gauge-title { font-size: 11px; font-weight: 700; color: var(--fg3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px; }
+.gauge-track-outer {
+  position: relative;
+  height: 8px;
+  background: var(--bg-panel);
+  border-radius: 4px;
+  overflow: visible;
+}
+.gauge-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent) 0%, #6ba0ff 100%);
+  transition: width .4s ease;
+}
+.gauge-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--fg3);
+  font-family: var(--font-mono);
+  margin-top: 6px;
+}
+.gauge-markers {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.gauge-marker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+.marker-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* CABINET CARDS */
+.cabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+@media (max-width: 500px) { .cabs { grid-template-columns: 1fr; } }
+.cab {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 13px 15px;
+}
+.cab-name {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--fg2); margin-bottom: 6px;
+}
+.cab-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.cab-val {
+  font-family: var(--font-mono); font-size: 18px; font-weight: 700;
+  font-variant-numeric: tabular-nums; line-height: 1;
+}
+.cab-pct { font-size: 11px; font-weight: 700; margin-top: 4px; }
+.cab-plan { font-size: 10px; color: var(--fg3); margin-top: 2px; font-family: var(--font-mono); }
+
+/* FORECAST BLOCK */
+.fc-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.fc-hdr {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px; flex-wrap: wrap; gap: 8px;
+}
+.fc-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--fg3); }
+.fc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+}
+.fc-item {}
+.fc-item-lbl { font-size: 9px; color: var(--fg3); text-transform: uppercase; letter-spacing: .07em; font-weight: 600; margin-bottom: 4px; }
+.fc-item-val { font-family: var(--font-mono); font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.fc-item-pct { font-size: 11px; font-weight: 700; margin-top: 3px; }
+.fc-item-note { font-size: 10px; color: var(--fg3); margin-top: 2px; font-family: var(--font-mono); }
+
+/* CHART */
+.chart-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.chart-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.chart-sub { font-size: 11px; color: var(--fg3); margin-bottom: 14px; }
+.chart-wrap { position: relative; height: 260px; }
+
+/* DAILY */
+.daily-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.daily-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--fg3); margin-bottom: 10px; }
+.daily-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.daily-row:last-child { border-bottom: none; }
+.daily-lbl { font-size: 12px; color: var(--fg2); }
+.daily-val { font-family: var(--font-mono); font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* FOOTER */
+.footer { font-size: 10px; color: var(--fg3); text-align: center; margin-top: 8px; }
+</style>
+
+<div class="hdr">
+  <div>
+    <div class="hdr-title">WB Оборот 2026</div>
+    <div class="hdr-sub">Wildberries · МГ, ГЛ, ЗА · Прогноз выполнения плана</div>
+  </div>
+  <div class="hdr-right">
+    <div class="hdr-date">Данные на 23.11</div>
+    <div class="hdr-upd">Обновлено 24.11.2026 10:11</div>
+    <button class="theme-btn" onclick="toggleTheme()">☀︎</button>
+  </div>
+</div>
+
+<!-- KPI TILES -->
+<div class="tiles">
+  <div class="tile">
+    <div class="tile-lbl">Факт накоп. (МГ+ГЛ+ЗА)</div>
+    <div class="tile-val">1 058,5</div>
+    <div class="tile-sub"><span class="g">97,1%</span> от плана</div>
+    <div class="tile-note">план 1 090 млн ₽</div>
+  </div>
+  <div class="tile">
+    <div class="tile-lbl">Осталось до плана</div>
+    <div class="tile-val">31,5</div>
+    <div class="tile-sub">млн ₽ · 38 дней</div>
+    <div class="tile-note">24.11 → 31.12.2026</div>
+  </div>
+  <div class="tile">
+    <div class="tile-lbl">Прогноз (М_new)</div>
+    <div class="tile-val">1 103,3</div>
+    <div class="tile-sub"><span class="g">101,2%</span> от плана</div>
+    <div class="tile-note">модель avg28 · decay 0.97</div>
+  </div>
+  <div class="tile">
+    <div class="tile-lbl">Факт вчера (23.11)</div>
+    <div class="tile-val">1 311 520</div>
+    <div class="tile-sub">₽ · <span class="g">175%</span> от нормы</div>
+    <div class="tile-note">МГ 1 025 481 + ГЛ 174 950 + ЗА 111 089</div>
+  </div>
+  <div class="tile">
+    <div class="tile-lbl">Нужно в день</div>
+    <div class="tile-val">829 474</div>
+    <div class="tile-sub">₽ / день</div>
+    <div class="tile-note">31,5 млн ÷ 38 дней</div>
+  </div>
+  <div class="tile">
+    <div class="tile-lbl">Тренд 7 дней</div>
+    <div class="tile-val"><span class="d">−0,9%</span></div>
+    <div class="tile-sub">по наклону avg28</div>
+    <div class="tile-note">trend28 = −9 592 ₽/день</div>
+  </div>
+</div>
+
+<!-- GAUGE -->
+<div class="gauge-wrap">
+  <div class="gauge-title">Шкала выполнения плана</div>
+  <div class="gauge-track-outer">
+    <div class="gauge-fill" id="gauge-fill" style="width: 0%"></div>
+  </div>
+  <div class="gauge-labels">
+    <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span><span>110%</span>
+  </div>
+  <div class="gauge-markers">
+    <div class="gauge-marker">
+      <div class="marker-dot" style="background: var(--accent)"></div>
+      <span>Факт <strong>97,1%</strong> · 1 058,5 млн</span>
+    </div>
+    <div class="gauge-marker">
+      <div class="marker-dot" style="background: var(--good)"></div>
+      <span>Прогноз <strong>101,2%</strong> · 1 103,3 млн</span>
+    </div>
+    <div class="gauge-marker">
+      <div class="marker-dot" style="background: var(--warn)"></div>
+      <span>План <strong>100%</strong> · 1 090 млн</span>
+    </div>
+  </div>
+</div>
+
+<!-- CABINET CARDS -->
+<div class="cabs">
+  <div class="cab">
+    <div class="cab-name">
+      <div class="cab-dot" style="background: #4b82f5"></div>
+      Мегаполис
+    </div>
+    <div class="cab-val">856,8 млн</div>
+    <div class="cab-pct"><span class="g">97,2%</span></div>
+    <div class="cab-plan">план 882 млн ₽</div>
+  </div>
+  <div class="cab">
+    <div class="cab-name">
+      <div class="cab-dot" style="background: #f0a020"></div>
+      Галактика
+    </div>
+    <div class="cab-val">156,8 млн</div>
+    <div class="cab-pct"><span class="g">96,8%</span></div>
+    <div class="cab-plan">план 162 млн ₽</div>
+  </div>
+  <div class="cab">
+    <div class="cab-name">
+      <div class="cab-dot" style="background: #e84545"></div>
+      Заренхоф
+    </div>
+    <div class="cab-val">44,8 млн</div>
+    <div class="cab-pct"><span class="g">97,5%</span></div>
+    <div class="cab-plan">план 46 млн ₽</div>
+  </div>
+</div>
+
+<!-- FORECAST BLOCK -->
+<div class="fc-block">
+  <div class="fc-hdr">
+    <div class="fc-title">Прогноз остатка года</div>
+  </div>
+  <div class="fc-grid">
+    <div class="fc-item">
+      <div class="fc-item-lbl">Ноябрь (факт 1–23)</div>
+      <div class="fc-item-val">33,24 млн</div>
+      <div class="fc-item-note">1–23 ноября</div>
+    </div>
+    <div class="fc-item">
+      <div class="fc-item-lbl">Ноябрь (прогноз 24–30)</div>
+      <div class="fc-item-val">9,82 млн</div>
+      <div class="fc-item-note">7 дней · M_new</div>
+    </div>
+    <div class="fc-item">
+      <div class="fc-item-lbl">Ноябрь итого</div>
+      <div class="fc-item-val">43,06 млн</div>
+      <div class="fc-item-note">факт + прогноз</div>
+    </div>
+    <div class="fc-item">
+      <div class="fc-item-lbl">Декабрь (прогноз)</div>
+      <div class="fc-item-val">35,03 млн</div>
+      <div class="fc-item-note">31 день · M_new</div>
+    </div>
+    <div class="fc-item">
+      <div class="fc-item-lbl">Итог года (прогноз)</div>
+      <div class="fc-item-val">1 103,3 млн</div>
+      <div class="fc-item-pct g">101,2%</div>
+    </div>
+    <div class="fc-item">
+      <div class="fc-item-lbl">Нараст. факт (окт.)</div>
+      <div class="fc-item-val">1 025,2 млн</div>
+      <div class="fc-item-note">январь–октябрь</div>
+    </div>
+  </div>
+</div>
+
+<!-- CHART: MONTHLY STACKED BAR -->
+<div class="chart-block">
+  <div class="chart-title">Оборот по месяцам 2026</div>
+  <div class="chart-sub">Факт (янв–окт + нояб 1–23) + прогноз остатка · нарастающий итог →</div>
+  <div class="chart-wrap">
+    <canvas id="monthly-chart"></canvas>
+  </div>
+</div>
+
+<!-- DAILY STATS -->
+<div class="daily-block">
+  <div class="daily-title">Дневная статистика</div>
+  <div class="daily-row">
+    <div class="daily-lbl">Нужно в день (до конца года)</div>
+    <div class="daily-val">829 474 ₽</div>
+  </div>
+  <div class="daily-row">
+    <div class="daily-lbl">Факт 23.11 (всего)</div>
+    <div class="daily-val g">1 311 520 ₽</div>
+  </div>
+  <div class="daily-row">
+    <div class="daily-lbl">МГ · Мегаполис</div>
+    <div class="daily-val">1 025 481 ₽</div>
+  </div>
+  <div class="daily-row">
+    <div class="daily-lbl">ГЛ · Галактика</div>
+    <div class="daily-val">174 950 ₽</div>
+  </div>
+  <div class="daily-row">
+    <div class="daily-lbl">ЗА · Заренхоф</div>
+    <div class="daily-val">111 089 ₽</div>
+  </div>
+  <div class="daily-row">
+    <div class="daily-lbl">avg28 (ср. за 28 дней)</div>
+    <div class="daily-val">1 466 408 ₽/день</div>
+  </div>
+  <div class="daily-row">
+    <div class="daily-lbl">trend28 (наклон)</div>
+    <div class="daily-val d">−9 592 ₽/день</div>
+  </div>
+</div>
+
+<div class="footer">Данные на 23.11.2026 · Источник: Wildberries · Расчёт: Google Sheets</div>
+
+<script>
+function toggleTheme() {
+  const r = document.documentElement;
+  const t = r.getAttribute('data-theme');
+  r.setAttribute('data-theme', t === 'light' ? 'dark' : 'light');
+}
+
+// Animate gauge fill
+(function() {
+  const pct = 97.1; // fact %
+  const maxPct = 110; // gauge max
+  setTimeout(() => {
+    const fill = document.getElementById('gauge-fill');
+    if (fill) fill.style.width = Math.min(pct, maxPct) / maxPct * 100 + '%';
+  }, 150);
+})();
+
+// Monthly chart
+(function() {
+  const ctx = document.getElementById('monthly-chart');
+  if (!ctx || typeof Chart === 'undefined') return;
+
+  const MONTHS = ['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
+  const stackFact   = [109.8, 119.8, 93.7, 70.8, 134.8, 123.5, 101.7, 87.9, 106.8, 76.5, 33.24, null];
+  const stackFc     = [null,  null,  null, null, null,  null,  null,  null, null,  null, 9.82,  35.03];
+  const cumFact     = [109.8, 229.6, 323.2, 394.1, 528.9, 652.4, 754.1, 841.9, 948.8, 1025.2, 1058.5, null];
+  const cumFc       = [null,  null,  null,  null,  null,  null,  null,  null,  null,  null,    1068.3,  1103.3];
+  const planLine    = Array(12).fill(1090);
+
+  // detect dark
+  function isDark() {
+    const t = document.documentElement.getAttribute('data-theme');
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  function getColors() {
+    return {
+      tick: isDark() ? '#7e8db0' : '#3d4a6a',
+      grid: isDark() ? 'rgba(37,45,69,0.4)' : 'rgba(192,210,232,0.5)',
+      fact: 'rgba(75,130,245,0.82)',
+      fc:   'rgba(46,201,122,0.72)',
+      line: '#a78bfa',
+      plan: 'rgba(240,160,32,0.9)',
+    };
+  }
+
+  let chart;
+  function buildChart() {
+    if (chart) chart.destroy();
+    const C = getColors();
+    chart = new Chart(ctx, {
+      data: {
+        labels: MONTHS,
+        datasets: [
+          { type:'bar',  label:'Факт',               data:stackFact, backgroundColor:C.fact, borderRadius:[3,3,0,0], borderSkipped:false, stack:'s', yAxisID:'yL', order:3 },
+          { type:'bar',  label:'Прогноз (остаток)',   data:stackFc,   backgroundColor:C.fc,   borderRadius:[3,3,0,0], borderSkipped:false, stack:'s', yAxisID:'yL', order:3 },
+          { type:'line', label:'Нараст. итог (факт)', data:cumFact,   borderColor:C.line, borderWidth:2.5, pointRadius:3, pointBackgroundColor:C.line, fill:false, tension:0.3, yAxisID:'yR', order:1 },
+          { type:'line', label:'Нараст. прогноз',     data:cumFc,     borderColor:C.line, borderWidth:2, borderDash:[5,4], pointRadius:3, pointBackgroundColor:C.line, fill:false, tension:0.3, yAxisID:'yR', order:1 },
+          { type:'line', label:'100% плана',          data:planLine,  borderColor:C.plan, borderWidth:2, borderDash:[8,5], pointRadius:0, fill:false, yAxisID:'yR', order:2 },
+        ]
+      },
+      options: {
+        responsive:true, maintainAspectRatio:false, animation:{duration:0},
+        interaction:{mode:'index',intersect:false},
+        plugins:{
+          legend:{display:false},
+          tooltip:{
+            backgroundColor: isDark() ? '#161b28' : '#fff',
+            borderColor: isDark() ? '#252d45' : '#d0d6e8',
+            borderWidth:1,
+            titleColor: C.tick,
+            bodyColor: isDark() ? '#dde3f5' : '#0f1420',
+            padding:10,
+          }
+        },
+        scales:{
+          x:{ grid:{color:C.grid}, ticks:{color:C.tick, font:{family:"'JetBrains Mono',monospace",size:10}} },
+          yL:{ position:'left', stacked:true, grid:{color:C.grid}, ticks:{color:C.tick, font:{family:"'JetBrains Mono',monospace",size:10}, callback:v=>v+' м'}, min:0, max:160 },
+          yR:{ position:'right', grid:{display:false}, ticks:{color:C.line, font:{family:"'JetBrains Mono',monospace",size:10}, callback:v=>v+' м'}, min:0, max:1300 }
+        }
+      }
+    });
+  }
+
+  buildChart();
+
+  // Redraw on theme toggle
+  const obs = new MutationObserver(buildChart);
+  obs.observe(document.documentElement, { attributes:true, attributeFilter:['data-theme'] });
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', buildChart);
+})();
+</script>
