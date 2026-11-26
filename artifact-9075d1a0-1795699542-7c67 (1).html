@@ -1,0 +1,1665 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>WB Оборот 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500;600;700&family=Noto+Sans+Mono:wght@400;500;600;700&family=Inconsolata:wght@400;500;600;700&family=Fira+Code:wght@400;500;600;700&family=Ubuntu+Mono:wght@400;700&family=Courier+Prime:wght@400;700&family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=DM+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#0d1018;--bg-card:#161b28;--bg-panel:#1c2234;--border:#252d45;
+  --fg:#dde3f5;--fg2:#7e8db0;--fg3:#485070;
+  --accent:#4b82f5;--good:#2ec97a;--warn:#f0a020;--danger:#e84545;
+  --m1:#4b82f5;--m2:#2ec97a;--m3:#f0a020;
+  --mg:#4b82f5;--gl:#f0a020;--za:#e84545;
+  --plan:#f0a020;--forecast:#4b82f5;--fact:#2ec97a;
+  color-scheme:dark;
+}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){
+  --bg:#f2f4fb;--bg-card:#fff;--bg-panel:#e8ecf7;--border:#cdd4ee;
+  --fg:#1a2040;--fg2:#556090;--fg3:#8898cc;
+  --accent:#2a65e8;--good:#17a85a;--warn:#c07a00;--danger:#cc2020;
+  --m1:#2a65e8;--m2:#17a85a;--m3:#c07a00;
+  --mg:#2a65e8;--gl:#c07a00;--za:#cc2020;--plan:#d08000;--forecast:#2a65e8;--fact:#17a85a;
+  color-scheme:light;
+}}
+:root[data-theme=light]{
+  --bg:#f2f4fb;--bg-card:#fff;--bg-panel:#e8ecf7;--border:#cdd4ee;
+  --fg:#1a2040;--fg2:#556090;--fg3:#8898cc;
+  --accent:#2a65e8;--good:#17a85a;--warn:#c07a00;--danger:#cc2020;
+  --m1:#2a65e8;--m2:#17a85a;--m3:#c07a00;
+  --mg:#2a65e8;--gl:#c07a00;--za:#cc2020;--plan:#d08000;--forecast:#2a65e8;--fact:#17a85a;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:'Manrope',system-ui,sans-serif;font-size:14px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:16px;
+}
+/* HEADER */
+.hdr{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.hdr h1{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.hdr .sub{font-size:11px;color:var(--fg3);text-transform:uppercase;letter-spacing:.07em;margin-top:1px}
+.hdr-r{display:flex;gap:8px;align-items:center}
+.upd{background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:5px 11px;font-size:11px;color:var(--fg3);display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+.upd strong{color:var(--good);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+.icon-btn{background:var(--bg-panel);border:1px solid var(--border);border-radius:6px;color:var(--fg2);cursor:pointer;font-size:14px;padding:5px 9px;line-height:1;font-family:inherit}
+.icon-btn:hover{color:var(--fg)}
+/* ROW1 */
+.row1{display:grid;grid-template-columns:1fr 2fr;gap:12px;margin-bottom:12px;align-items:stretch}
+@media(max-width:620px){.row1{grid-template-columns:1fr}}
+.fact-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.fact-lbl{font-size:10px;color:var(--fg3);text-transform:uppercase;letter-spacing:.09em;font-weight:600}
+.fact-val{font-size:30px;font-weight:800;font-family:'Fira Code',monospace;font-feature-settings:'zero' 0,'liga' 0;font-variant-numeric:normal;line-height:1.1;color:var(--fg)}
+.fact-pct{font-size:15px;font-weight:700}
+.fact-plan-line{font-size:11px;color:var(--fg2);font-family:'Fira Code',monospace;font-feature-settings:'zero' 0,'liga' 0}
+.fact-rem{font-size:11px;color:var(--warn);font-weight:600}
+.fact-days{font-size:11px;color:var(--fg3);margin-top:auto;padding-top:6px;border-top:1px solid var(--border)}
+.fact-daily{display:flex;flex-direction:column;gap:3px;padding:6px 10px;border-radius:8px;background:var(--bg-panel);margin-top:2px}
+.fact-daily-row{display:flex;align-items:center;gap:4px;font-size:11px}
+.fact-daily-lbl{color:var(--fg3);flex:1 1 auto}
+.fact-daily-val{font-family:'Fira Code',monospace;font-weight:700;font-size:12px;text-align:right}
+.fact-daily-val.ok{color:var(--good)}.fact-daily-val.bad{color:var(--danger)}.fact-daily-val.neutral{color:var(--fg2)}
+.pct-g{color:var(--good)}.pct-w{color:var(--warn)}.pct-d{color:var(--danger)}
+/* GAUGE CARD */
+.gauge-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:14px 18px 12px;display:flex;flex-direction:column}
+.gauge-title{font-size:10px;font-weight:700;color:var(--fg3);text-transform:uppercase;letter-spacing:.09em;margin-bottom:8px}
+/*
+  GAUGE ZONE layout (v8):
+  - Above row A: Факт badge  → top:0, height 34px, stem down to track top
+  - Above row B: Прогноз badge → top:34px, height 30px, stem down to track top (at top:64px)
+  - Track: top:64px, height:20px
+  - Below track: Plan tick + badge in gauge-ticks row (outside gauge-zone)
+  Total zone height: 64 + 20 + 4 spacing = ~92px
+*/
+.gauge-zone{position:relative;height:130px;width:100%}
+.gauge-track{
+  position:absolute;left:0;right:0;
+  top:38px;height:14px;
+  background:var(--bg-panel);border-radius:10px;overflow:hidden;
+}
+.gauge-fill{
+  height:100%;
+  background:linear-gradient(90deg,#e84545 0%,#f0a020 36%,#2ec97a 64%,#4b82f5 100%);
+  transition:width .4s ease;border-radius:10px 0 0 10px;
+}
+/* ── GAUGE MARKERS ──
+   track: top:38px, h:14px → bottom:52px
+   Факт: badge top:0 → stem grows down to track (height:38px)
+   Plan: tick on track, top:34px, h:22px (extends 4px above & below track)
+   Прогноз: badge below track, top:56px → stem grows up (inverted)
+*/
+/* ФАКТ — badge ВЫШЕ трека, стем вниз */
+.gm-fact{
+  position:absolute;top:0;height:38px;
+  transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  pointer-events:none;z-index:4;
+}
+.gm-fact-badge{
+  white-space:nowrap;font-size:10px;font-weight:700;padding:3px 9px;
+  border-radius:5px;border:1.5px solid #4b82f5;background:var(--bg-card);color:#4b82f5;
+  line-height:1.5;font-family:'Fira Code',monospace;text-align:center;flex-shrink:0;
+}
+.gm-fact-badge small{display:block;font-size:9px;font-weight:500;opacity:.85}
+.gm-fact-stem{width:2px;flex:1;min-height:2px;background:#4b82f5;border-radius:1px;margin-top:2px}
+
+/* ПЛАН — тик прямо НА треке (рычажок) */
+.gm-plan{
+  position:absolute;top:34px;
+  transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;
+  pointer-events:none;z-index:5;
+}
+.gm-plan-tick{
+  width:3px;height:22px;background:var(--plan);border-radius:2px;opacity:.95;
+  box-shadow:0 0 0 2.5px var(--bg-card);
+}
+.gm-plan-label{
+  margin-top:3px;font-size:9px;font-weight:700;color:var(--plan);
+  font-family:'Fira Code',monospace;white-space:nowrap;
+}
+
+/* ПРОГНОЗ — тик на треке (зелёный, как у Плана) + badge ниже */
+.gm-forecast{
+  position:absolute;top:34px;
+  transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;
+  pointer-events:none;z-index:3;
+}
+/* зелёный тик — на треке */
+.gm-forecast-tick-on-track{
+  width:3px;height:22px;background:var(--good);border-radius:2px;opacity:.95;
+  box-shadow:0 0 0 2.5px var(--bg-card);
+}
+/* стем вниз от тика до badge */
+.gm-forecast-stem{width:2px;height:22px;background:var(--good);border-radius:1px;opacity:.5}
+.gm-forecast-badge{
+  white-space:nowrap;font-size:10px;font-weight:700;padding:3px 9px;
+  border-radius:5px;border:1.5px solid var(--good);background:var(--bg-card);color:var(--good);
+  line-height:1.5;font-family:'Fira Code',monospace;text-align:center;flex-shrink:0;margin-top:1px;
+}
+.gm-forecast-badge small{display:block;font-size:9px;font-weight:500;opacity:.85}
+.gm-forecast-tick{display:none}
+
+.gm-ticks-row{display:none}
+.gm-tick-label{display:none}
+/* gauge ticks: числовые метки 0%/25%/.../110% */
+.gauge-ticks{position:relative;height:14px;font-size:10px;color:var(--fg3);margin-top:4px;font-family:'Fira Code',monospace;font-feature-settings:'zero' 0,'liga' 0}
+.gauge-ticks span{position:absolute;transform:translateX(-50%)}
+.gauge-ticks span:first-child{left:0;transform:none}
+.gauge-ticks span:last-child{right:0;transform:none}
+.gauge-legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.gl-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--fg2)}
+
+/* ROW2: cabinets */
+.row2{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+@media(max-width:500px){.row2{grid-template-columns:1fr}}
+.cab-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+.cab-name{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;gap:5px;margin-bottom:5px;color:var(--fg2)}
+.cab-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.cab-val{font-size:19px;font-weight:800;font-family:'Fira Code',monospace}
+.cab-pct{font-size:11px;font-weight:700;margin-top:1px}
+.cab-plan{font-size:10px;color:var(--fg3);margin-top:1px;font-family:'Fira Code',monospace}
+/* FC TILES */
+.fc-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:12px}
+.fc-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:11px 13px}
+.fc-lbl{font-size:10px;color:var(--fg3);text-transform:uppercase;letter-spacing:.07em;font-weight:600}
+.fc-val{font-size:18px;font-weight:800;font-family:'Fira Code',monospace;margin-top:2px}
+.fc-pct{font-size:11px;font-weight:700;margin-top:1px}
+.fc-wt{font-size:10px;color:var(--fg3);margin-top:3px}
+.fc-m1{border-top:2px solid var(--m1)}.fc-m2{border-top:2px solid var(--m2)}.fc-m3{border-top:2px solid var(--m3)}
+/* FC BLOCK — прогноз снизу */
+.fc-block{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:12px}
+.fc-block-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+.fc-block-title{font-size:13px;font-weight:700;color:var(--fg);letter-spacing:-.1px}
+.fc-block-sub{font-size:11px;color:var(--fg3);margin-top:1px}
+.fc-toggle-tech{background:none;border:1px solid var(--border);border-radius:5px;color:var(--fg3);font-size:10px;padding:3px 9px;cursor:pointer;font-family:inherit}
+.fc-toggle-tech:hover{color:var(--fg)}
+.fc-main-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:center}
+@media(max-width:560px){.fc-main-row{grid-template-columns:1fr;gap:10px}}
+.fc-big-num{font-size:32px;font-weight:800;font-family:'Fira Code',monospace;line-height:1;color:var(--fg)}
+.fc-big-pct{font-size:16px;font-weight:700;margin-top:4px}
+.fc-divider{width:1px;height:60px;background:var(--border);justify-self:center}
+@media(max-width:560px){.fc-divider{display:none}}
+.fc-range-block{}
+.fc-range-title{font-size:10px;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;font-weight:600}
+.fc-range-pair{display:flex;gap:16px}
+.fc-range-item{}
+.fc-range-item-lbl{font-size:9px;color:var(--fg3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.fc-range-item-rub{font-size:14px;font-weight:700;font-family:'Fira Code',monospace;color:var(--fg)}
+.fc-range-item-pct{font-size:12px;font-weight:700;margin-top:1px}
+.fc-tech{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:none}
+.fc-tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.fc-tech-item{background:var(--bg-panel);border-radius:6px;padding:7px 10px}
+.fc-tech-item dt{font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:var(--fg3);margin-bottom:2px}
+.fc-tech-item dd{font-size:11px;font-weight:600;font-family:'Fira Code',monospace;color:var(--fg2)}
+/* SLIDERS */
+.sliders-sec{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.sl-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px}
+.sl-title{font-size:10px;font-weight:700;color:var(--fg3);text-transform:uppercase;letter-spacing:.09em}
+.sl-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:560px){.sl-cols{grid-template-columns:1fr}}
+.sl-col-title{font-size:10px;font-weight:700;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.reset-btn{background:var(--bg-panel);border:1px solid var(--border);border-radius:6px;color:var(--fg2);cursor:pointer;font-size:12px;padding:4px 11px;font-family:inherit}
+.reset-btn:hover{color:var(--fg);border-color:var(--accent)}
+.sl-row{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.sl-row:last-child{margin-bottom:0}
+.sl-meta{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.sl-name{font-size:12px;color:var(--fg2);display:flex;align-items:center;gap:5px;font-weight:500}
+.sl-val{font-size:12px;font-weight:700;font-family:'Fira Code',monospace;min-width:40px;text-align:right;color:var(--fg)}
+/* SLIDER — lever knob (default) */
+input[type=range].h-slider{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:6px;border-radius:3px;
+  background:var(--bg-panel);outline:none;cursor:pointer;border:none;
+}
+input[type=range].h-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;width:10px;height:28px;border-radius:4px;
+  background:currentColor;border:2px solid var(--bg-card);
+  box-shadow:0 2px 8px rgba(0,0,0,.5);cursor:ew-resize;
+}
+input[type=range].h-slider::-moz-range-thumb{
+  width:10px;height:28px;border-radius:4px;
+  background:currentColor;border:2px solid var(--bg-card);cursor:ew-resize;
+}
+.sl-row-val{font-size:11px;font-weight:700;font-family:'Fira Code',monospace;color:var(--fg);margin-bottom:2px}
+.sl-minmax{display:flex;justify-content:space-between;font-size:9px;color:var(--fg3);font-family:'Fira Code',monospace}
+/* DRR zone */
+.drr-wrap{position:relative;margin-top:2px;padding-bottom:2px}
+.drr-green-band{
+  position:absolute;
+  left:26.67%;width:33.33%;
+  height:12px;top:50%;transform:translateY(-50%);
+  background:rgba(46,201,122,0.28);
+  border-left:2px solid rgba(46,201,122,0.65);
+  border-right:2px solid rgba(46,201,122,0.65);
+  pointer-events:none;z-index:0;border-radius:3px;
+}
+.drr-wrap input{position:relative;z-index:1;display:block}
+/* SPP green bands (historical min-max) */
+.spp-wrap{position:relative;margin-top:0;padding-bottom:0}
+.spp-wrap input{position:relative;z-index:1;display:block}
+.spp-green-band{
+  position:absolute;
+  height:12px;top:50%;transform:translateY(-50%);
+  background:rgba(46,201,122,0.28);
+  border-left:2px solid rgba(46,201,122,0.65);
+  border-right:2px solid rgba(46,201,122,0.65);
+  pointer-events:none;z-index:0;border-radius:3px;
+}
+/* DESIGN LAB */
+.lab-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--bg-panel);border:1px solid var(--border);border-radius:7px;
+  padding:7px 13px;cursor:pointer;font-size:12px;color:var(--fg2);
+  margin-bottom:10px;font-family:inherit;transition:color .15s;
+}
+.lab-btn:hover{color:var(--fg);border-color:var(--accent)}
+.lab-panel{background:var(--bg-panel);border:1px solid var(--accent);border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.lab-panel h3{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.lab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.lab-row{display:flex;flex-direction:column;gap:4px}
+.lab-row label{font-size:11px;color:var(--fg2)}
+.lab-row input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;background:var(--border);outline:none;cursor:pointer}
+.lab-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card)}
+.lab-row input[type=color]{-webkit-appearance:none;width:34px;height:26px;border:1px solid var(--border);border-radius:5px;background:none;cursor:pointer;padding:2px}
+.lab-v{font-size:11px;color:var(--fg);font-family:'Fira Code',monospace}
+.thumb-preview{margin-top:6px;padding:8px 10px;background:var(--bg-card);border-radius:8px;border:1px solid var(--border)}
+.thumb-preview p{font-size:11px;color:var(--fg3);margin-bottom:6px}
+/* CHART */
+.chart-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.chart-title{font-size:14px;font-weight:700;font-family:'Manrope',sans-serif}
+.chart-sub{font-size:11px;color:var(--fg3);margin-top:1px;margin-bottom:12px}
+.chart-wrap{position:relative;width:100%}
+.chart-wrap canvas{width:100%!important}
+</style>
+
+<script>
+/* ── CONSTANTS ── */
+const PLANS={mg:882e6,gl:162e6,za:46e6,total:1090400169};
+const ACT_CUM={mg:858730287,gl:157172399,za:45105343}; /* Jan1–Nov25 */
+ACT_CUM.total=ACT_CUM.mg+ACT_CUM.gl+ACT_CUM.za;
+const BASE_SPP={mg:15.06,gl:12.52,za:19.26};
+const BASE_DRR=6.5;
+const BETA_SPP={mg:0.02887430119,gl:0.02200741194,za:0.04921769756};
+const EPS_HIST={mg:0,gl:0.05697613357,za:0.2518335957};
+const DOW_W={
+  mg:[0.9447,0.9997,0.9968,0.9616,0.9806,1.0277,1.0890],
+  gl:[1.0397,0.9221,0.9203,0.9049,1.0277,1.0443,1.1410],
+  za:[0.9772,0.9650,1.0115,1.0021,0.9126,1.0217,1.1099]
+};
+const TREND={
+  mg:{avg28:1085822.64,trend28:143.75,  trend56:579094,base:932804},
+  gl:{avg28:218848.64, trend28:-5567.91,trend56:29180, base:161948},
+  za:{avg28:161737.04, trend28:-4168.12,trend56:145770,base:156947}
+};
+/* base = 0.70×avg28 + 0.30×trend56_adj (trend56 скорректирован на пик 1–6 окт) */
+/* trend56_adj: МГ 579094 = 653665−74571; ГЛ 29180 = 59101−29921; ЗА 145770 = 147620−1851 */
+/* M_lo  = trend28 × decay=0.95 (пессимистичный тренд) */
+/* M_hi  = avg28 × decay=1.0  (оптимистичный стабильный темп) */
+/* actual data cutoff */
+const FACT_END=new Date('2026-11-25');
+
+/* ── DAILY FACT (reconstructed, scaled to match ACT_CUM) ── */
+const DAILY_FACT=(()=>{
+  const days=[];
+  for(let d=new Date('2026-01-01');d<=FACT_END;d.setDate(d.getDate()+1))
+    days.push(new Date(d));
+  const raw=days.map(dt=>{
+    const dow=(dt.getDay()+6)%7;
+    return{date:dt.toISOString().slice(0,10),
+      mg:TREND.mg.avg28*DOW_W.mg[dow],
+      gl:TREND.gl.avg28*DOW_W.gl[dow],
+      za:TREND.za.avg28*DOW_W.za[dow]};
+  });
+  const s={mg:0,gl:0,za:0};
+  raw.forEach(d=>{s.mg+=d.mg;s.gl+=d.gl;s.za+=d.za});
+  raw.forEach(d=>{d.mg*=ACT_CUM.mg/s.mg;d.gl*=ACT_CUM.gl/s.gl;d.za*=ACT_CUM.za/s.za});
+  return raw;
+})();
+
+/* ── PROJECTION ──
+   M_new: 0.6×avg28 + 0.4×trend28, decay=0.97 — основная (MAE 3.4% на бэктесте)
+   M_lo:  trend28 × decay=0.95 — пессимистичный (тренд угасает быстрее)
+   M_hi:  avg28 × decay=1.0   — оптимистичный (темп стабилен)
+   SPP/DRR слайдеры применяются через mult-коэффициент ко всем трём
+*/
+function buildProjection(sppMg,sppGl,sppZa,drrTotal){
+  const sN={mg:sppMg,gl:sppGl,za:sppZa};
+  const ar=drrTotal/BASE_DRR;
+  const proj={mn:[],mlo:[],mhi:[]};
+  const start=new Date('2026-11-25'),end=new Date('2026-12-31');
+  for(let d=new Date(start),i=0;d<=end;d.setDate(d.getDate()+1),i++){
+    const dow=(d.getDay()+6)%7;
+    const dec97=Math.pow(0.97,i/7);
+    const dec95=Math.pow(0.95,i/7);
+    const date=d.toISOString().slice(0,10);
+    const r={mn:{date,mg:0,gl:0,za:0},mlo:{date,mg:0,gl:0,za:0},mhi:{date,mg:0,gl:0,za:0}};
+    ['mg','gl','za'].forEach(c=>{
+      let mult=1+BETA_SPP[c]*(sN[c]-BASE_SPP[c]);
+      if(EPS_HIST[c]>0&&ar>0) mult+=EPS_HIST[c]*Math.log(ar);
+      r.mn[c] =Math.max(0,TREND[c].base  *DOW_W[c][dow]*dec97*mult);
+      r.mlo[c]=Math.max(0,TREND[c].trend28*DOW_W[c][dow]*dec95*mult);
+      r.mhi[c]=Math.max(0,TREND[c].avg28  *DOW_W[c][dow]*mult);
+    });
+    proj.mn.push(r.mn);proj.mlo.push(r.mlo);proj.mhi.push(r.mhi);
+  }
+  return proj;
+}
+
+/*
+  ── CHART: LINEAR TIME AXIS ──
+  X-axis: each point = one specific date.
+  Labels: "1 янв", "1 фев", ... "15 ноя" (actual cutoff), "1 дек", "31 дек"
+  Data series: cumulative by date.
+  Fact: Jan 1 through Nov 16 (starting at 0 on Jan 1)
+  Forecast (M2): Nov 16 through Dec 31 (continuing from fact end)
+*/
+function buildLinearChart(proj){
+  /* all dates Jan 1 → Dec 31 */
+  const allDates=[];
+  for(let d=new Date('2026-01-01'),end=new Date('2026-12-31');d<=end;d.setDate(d.getDate()+1))
+    allDates.push(d.toISOString().slice(0,10));
+
+  /* which dates to show tick labels — 1st of each month + Nov 16 cutoff */
+  const tickDates=new Set();
+  for(let m=0;m<12;m++){
+    const mo=new Date(2026,m,1).toISOString().slice(0,10);
+    tickDates.add(mo);
+  }
+  tickDates.add('2026-11-25'); /* actual cutoff — no Dec 31 label, axis ends there naturally */
+
+  /* build cumulative fact map */
+  const factMap={mg:{},gl:{},za:{}};
+  let run={mg:0,gl:0,za:0};
+  DAILY_FACT.forEach(d=>{
+    run.mg+=d.mg;run.gl+=d.gl;run.za+=d.za;
+    factMap.mg[d.date]=run.mg;
+    factMap.gl[d.date]=run.gl;
+    factMap.za[d.date]=run.za;
+  });
+
+  /* build cumulative proj map (M_new for chart) */
+  const projMap={mg:{},gl:{},za:{}};
+  let prun={mg:ACT_CUM.mg,gl:ACT_CUM.gl,za:ACT_CUM.za};
+  proj.mn.forEach(d=>{
+    prun.mg+=d.mg;prun.gl+=d.gl;prun.za+=d.za;
+    projMap.mg[d.date]=prun.mg;
+    projMap.gl[d.date]=prun.gl;
+    projMap.za[d.date]=prun.za;
+  });
+
+  /* labels */
+  const ruMon=['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
+  const labels=allDates.map(dt=>{
+    if(!tickDates.has(dt)) return '';
+    const d=new Date(dt+'T00:00:00');
+    if(dt==='2026-11-25') return '25 ноя';
+    if(dt==='2026-12-31') return '31 дек';
+    return `1 ${ruMon[d.getMonth()]}`;
+  });
+
+  /* data arrays: null for dates without data */
+  const tot_f=allDates.map(dt=>{
+    const mg=factMap.mg[dt],gl=factMap.gl[dt],za=factMap.za[dt];
+    return mg!==undefined?(mg+gl+za):null;
+  });
+  const mg_f=allDates.map(dt=>factMap.mg[dt]!==undefined?factMap.mg[dt]:null);
+  const gl_f=allDates.map(dt=>factMap.gl[dt]!==undefined?factMap.gl[dt]:null);
+  const za_f=allDates.map(dt=>factMap.za[dt]!==undefined?factMap.za[dt]:null);
+
+  /* For forecast: start from Nov 16 (last fact point) so lines connect */
+  const fcStart='2026-11-25';
+  const tot_m2=allDates.map(dt=>{
+    if(dt===fcStart) return ACT_CUM.total;
+    const mg=projMap.mg[dt],gl=projMap.gl[dt],za=projMap.za[dt];
+    return mg!==undefined?(mg+gl+za):null;
+  });
+  const mg_m2=allDates.map(dt=>{
+    if(dt===fcStart) return ACT_CUM.mg;
+    return projMap.mg[dt]!==undefined?projMap.mg[dt]:null;
+  });
+  const gl_m2=allDates.map(dt=>{
+    if(dt===fcStart) return ACT_CUM.gl;
+    return projMap.gl[dt]!==undefined?projMap.gl[dt]:null;
+  });
+  const za_m2=allDates.map(dt=>{
+    if(dt===fcStart) return ACT_CUM.za;
+    return projMap.za[dt]!==undefined?projMap.za[dt]:null;
+  });
+
+  return{labels,allDates,series:{tot_f,mg_f,gl_f,za_f,tot_m2,mg_m2,gl_m2,za_m2}};
+}
+
+const fmtNum=v=>String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g,' ');
+const fmtM=v=>{const a=Math.abs(v);return a>=1e9?(v/1e9).toFixed(2)+' млрд':a>=1e6?(v/1e6).toFixed(0)+' млн':v.toFixed(0)};
+const fmtP=v=>v.toFixed(1)+'%';
+const pCls=p=>p>=100?'pct-g':p>=90?'pct-w':'pct-d';
+
+let CC={m1:'#4b82f5',m2:'#2ec97a',m3:'#f0a020',fact:'#2ec97a',plan:'#f0a020',forecast:'#4b82f5',
+        mg:'#4b82f5',gl:'#f0a020',za:'#e84545'};
+let LW={fact:4.5,mdl:1.5};
+let mainChart=null;
+
+/* Daily stats */
+const DAYS_LEFT=36; /* 26 Nov – 31 Dec */
+let cross100DateStr=''; /* populated in recalc(), used in buildMonthlyChart */
+const REMAIN=PLANS.total-ACT_CUM.total;
+const DAILY_NEED=REMAIN/DAYS_LEFT;
+/* last day fact — реальный оборот за 16.11.2026 из WB-отчётов */
+const LAST_DAY_FACT=1261998; /* МГ 940 198 + ГЛ 193 842 + ЗА 127 958 — 25.11.2026 */
+
+function getSlVals(){
+  return{
+    sppMg:+document.getElementById('sl-spp-mg').value,
+    sppGl:+document.getElementById('sl-spp-gl').value,
+    sppZa:+document.getElementById('sl-spp-za').value,
+    drr:+document.getElementById('sl-drr').value
+  };
+}
+
+function recalc(){
+  const{sppMg,sppGl,sppZa,drr}=getSlVals();
+  /* show value ABOVE the lever (in the sl-row-val element) */
+  setText('dv-spp-mg',fmtP(sppMg));
+  setText('dv-spp-gl',fmtP(sppGl));
+  setText('dv-spp-za',fmtP(sppZa));
+  setText('dv-drr',fmtP(drr));
+  const tw=PLANS.total;
+  setText('dv-spp-tot',fmtP((sppMg*PLANS.mg+sppGl*PLANS.gl+sppZa*PLANS.za)/tw));
+  /* slider fill + color */
+  [{id:'sl-spp-mg',col:CC.mg},{id:'sl-spp-gl',col:CC.gl},{id:'sl-spp-za',col:CC.za},{id:'sl-drr',col:'#7b93ff'}].forEach(({id,col})=>{
+    const el=document.getElementById(id);if(!el)return;
+    const p=(el.value-el.min)/(el.max-el.min)*100;
+    el.style.background=`linear-gradient(90deg,${col} ${p}%,var(--bg-panel) ${p}%)`;
+    el.style.color=col;
+  });
+  /* update lever value position above thumb */
+  [{slId:'sl-spp-mg',dvId:'dv-spp-mg'},{slId:'sl-spp-gl',dvId:'dv-spp-gl'},{slId:'sl-spp-za',dvId:'dv-spp-za'},{slId:'sl-drr',dvId:'dv-drr'}].forEach(({slId,dvId})=>{
+    const sl=document.getElementById(slId),dv=document.getElementById(dvId);
+    if(!sl||!dv)return;
+    const p=(sl.value-sl.min)/(sl.max-sl.min);
+    /* thumb center in px relative to slider width */
+    const thumbW=10;
+    dv.style.left=`calc(${p*100}% - ${thumbW/2}px + ${thumbW*(0.5-p)}px)`;
+  });
+
+  const proj=buildProjection(sppMg,sppGl,sppZa,drr);
+  const mt={mn:ACT_CUM.total,mlo:ACT_CUM.total,mhi:ACT_CUM.total};
+  proj.mn.forEach(d=>{mt.mn+=d.mg+d.gl+d.za});
+  proj.mlo.forEach(d=>{mt.mlo+=d.mg+d.gl+d.za});
+  proj.mhi.forEach(d=>{mt.mhi+=d.mg+d.gl+d.za});
+
+  /* FC tiles: mn=основная, mlo=нижняя граница, mhi=верхняя граница */
+  const pMn=mt.mn/PLANS.total*100;
+  const pLo=mt.mlo/PLANS.total*100;
+  const pHi=mt.mhi/PLANS.total*100;
+  setText('fc-val-mn',fmtM(mt.mn));
+  const elMn=document.getElementById('fc-pct-mn');
+  if(elMn){elMn.textContent=fmtP(pMn);elMn.className='fc-pct '+pCls(pMn)}
+  setText('fc-range-lo',fmtP(pLo));
+  setText('fc-range-hi',fmtP(pHi));
+  setText('fc-range-rub-lo',fmtM(mt.mlo));
+  setText('fc-range-rub-hi',fmtM(mt.mhi));
+
+  /* gauge */
+  const aP=ACT_CUM.total/PLANS.total*100;
+  updateGauge(aP,pMn);
+
+  /* cab KPIs */
+  ['total','mg','gl','za'].forEach(k=>{
+    const p=ACT_CUM[k]/PLANS[k]*100;
+    ['kpi-pct-'+k,'cab-pct-'+k].forEach(id=>{
+      const el=document.getElementById(id);if(el){el.textContent=fmtP(p);el.className=(id.startsWith('kpi')?'fact-pct ':'cab-pct ')+pCls(p)}
+    });
+  });
+  /* cab share of total turnover */
+  ['mg','gl','za'].forEach(k=>{
+    const el=document.getElementById('cab-share-'+k);
+    if(el) el.textContent=fmtP(ACT_CUM[k]/ACT_CUM.total*100)+' от итого';
+  });
+
+  /* daily stats in fact card — показываем в рублях без сокращения */
+  const fmtRub=v=>fmtNum(v)+' ₽';
+  const isOk=LAST_DAY_FACT>=DAILY_NEED;
+  const ldEl=document.getElementById('last-day-val');
+  if(ldEl){ldEl.textContent=fmtRub(LAST_DAY_FACT);ldEl.className='fact-daily-val '+(isOk?'ok':'bad')}
+  const pctEl=document.getElementById('last-day-pct');
+  if(pctEl){
+    const pct=Math.round(LAST_DAY_FACT/DAILY_NEED*100);
+    pctEl.textContent=pct+'%';
+    pctEl.style.color=isOk?'var(--good)':'var(--danger)';
+  }
+  const ndEl=document.getElementById('need-day-val');
+  if(ndEl){ndEl.textContent=fmtRub(DAILY_NEED);ndEl.className='fact-daily-val neutral'}
+  /* dynamic labels */
+  const feD=FACT_END;
+  const feStr=(feD.getDate())+'.'+(feD.getMonth()+1<10?'0':'')+(feD.getMonth()+1);
+  const lblEl=document.getElementById('fact-lbl');
+  if(lblEl) lblEl.textContent='Общий факт на '+feStr;
+  const ldlEl=document.getElementById('last-day-lbl');
+  if(ldlEl) ldlEl.textContent='Факт '+feStr;
+  const remEl=document.getElementById('fact-rem');
+  if(remEl) remEl.textContent='осталось: '+(REMAIN/1e6).toFixed(1)+' млн ₽';
+  /* вычисляем дату пересечения 100% плана по текущим слайдерам */
+  const p100El=document.getElementById('fact-100pct');
+  if(p100El){
+    let cum100=ACT_CUM.total;
+    let cross100=null;
+    const END_DATE=new Date('2026-12-31');
+    for(let pi=0;pi<proj.mn.length;pi++){
+      const d=proj.mn[pi];
+      cum100+=d.mg+d.gl+d.za;
+      if(cum100>=PLANS.total&&!cross100){cross100=d.date;break;}
+    }
+    if(cross100){
+      const cd=new Date(cross100+'T00:00:00');
+      const ds=cd.getDate()+'.'+(cd.getMonth()<9?'0':'')+(cd.getMonth()+1);
+      const daysLeft=Math.round((cd-new Date())/86400000);
+      p100El.textContent='100% к '+ds+' (осталось '+daysLeft+' дней из '+DAYS_LEFT+' дней)';
+      p100El.style.display='';
+      cross100DateStr=ds;
+    } else {
+      p100El.textContent='100% план — не достигается';
+      p100El.style.color='var(--danger)';
+      cross100DateStr='';
+    }
+  }
+  const daysEl=document.getElementById('fact-days');
+  if(daysEl) daysEl.textContent='';
+  const tvEl=document.getElementById('fact-val-total');
+  if(tvEl) tvEl.innerHTML=fmtNum(ACT_CUM.total)+' <span style="font-size:14px;color:var(--fg2)">₽</span>';
+
+  /* chart */
+  updateChart(proj);
+
+  /* combo chart: накладываем оборот (столбики) + нарастающий итог (линии) */
+  const comboProj=buildComboProjection(sppMg,sppGl,sppZa,drr);
+  buildComboChart(comboProj);
+}
+function setText(id,v){const el=document.getElementById(id);if(el)el.textContent=v}
+
+/*
+  GAUGE positions: scale 0–110%
+  Fact badge: ABOVE track (always)
+  Прогноз badge: row C below track (top:48px within gauge-zone)
+  План badge: row D below track (top:80px within gauge-zone) — always
+  No collision possible: they occupy separate rows.
+  If forecast % == plan % (100%), we still show both rows.
+*/
+function updateGauge(aP,fP){
+  const MAX=110;
+  const toLeft=p=>(Math.min(p,MAX)/MAX*100).toFixed(3)+'%';
+
+  /* gauge fill */
+  const gf=document.getElementById('gauge-fill');
+  if(gf) gf.style.width=toLeft(aP);
+
+  /* ФАКТ — badge ВЫШЕ трека, left = aP */
+  const gFact=document.getElementById('g-fact');
+  if(gFact) gFact.style.left=toLeft(aP);
+  const gFactBadge=document.getElementById('g-fact-badge');
+  if(gFactBadge) gFactBadge.innerHTML=`Факт ${fmtP(aP)}<small>${fmtM(ACT_CUM.total)}</small>`;
+
+  /* ПРОГНОЗ — badge НИЖЕ трека (зелёный), left = fP */
+  const gFc=document.getElementById('g-forecast');
+  if(gFc) gFc.style.left=toLeft(fP);
+  const fcTotal=ACT_CUM.total/aP*fP;
+  const gFcBadge=document.getElementById('g-forecast-badge');
+  if(gFcBadge) gFcBadge.innerHTML=`Прогноз ${fmtP(fP)}<small>${fmtM(fcTotal)}</small>`;
+
+  /* ПЛАН — тик на треке, всегда 100% */
+  const gPl=document.getElementById('g-plan');
+  if(gPl) gPl.style.left=toLeft(100);
+  const gPlLabel=document.getElementById('g-plan-label');
+  if(gPlLabel) gPlLabel.textContent='План 100% · 1 090 400 169 ₽';
+}
+
+function dsLine(label,data,color,dash,width,order){
+  return{label,data,
+    borderColor:color,backgroundColor:'transparent',
+    borderWidth:width,borderDash:dash||[],
+    pointRadius:0,pointHoverRadius:4,pointHitRadius:8,
+    tension:0,spanGaps:false,order:order||0};
+}
+
+function updateChart(proj){
+  // main-chart canvas removed — linear chart no longer shown
+  if(!document.getElementById('main-chart')) return;
+  const{labels,allDates,series}=buildLinearChart(proj);
+  const PLAN_TOTAL=PLANS.total;
+
+  const ds=[
+    dsLine('Итого · факт',   series.tot_f,  CC.fact,  [],    LW.fact, 10),
+    dsLine('Итого · прогноз', series.tot_m2, CC.fact, [6,3], LW.fact-1, 9),
+    dsLine('МГ · факт',      series.mg_f,   CC.mg,    [],    LW.mdl, 8),
+    dsLine('МГ · прогноз',   series.mg_m2,  CC.mg,    [4,4], LW.mdl-0.3, 7),
+    dsLine('ГЛ · факт',      series.gl_f,   CC.gl,    [],    LW.mdl, 6),
+    dsLine('ГЛ · прогноз',   series.gl_m2,  CC.gl,    [4,4], LW.mdl-0.3, 5),
+    dsLine('ЗА · факт',      series.za_f,   CC.za,    [],    LW.mdl, 4),
+    dsLine('ЗА · прогноз',   series.za_m2,  CC.za,    [4,4], LW.mdl-0.3, 3),
+  ];
+
+  /* Plan line + fact cutoff line plugins */
+  const overlayPlugin={
+    id:'overlay',
+    afterDraw(chart){
+      const{ctx,chartArea:ca,scales,data}=chart;
+      /* plan line */
+      const yPlan=scales.y.getPixelForValue(PLAN_TOTAL);
+      if(yPlan>=ca.top&&yPlan<=ca.bottom){
+        ctx.save();
+        ctx.strokeStyle=CC.plan;ctx.lineWidth=2.5;ctx.setLineDash([8,5]);ctx.globalAlpha=.85;
+        ctx.beginPath();ctx.moveTo(ca.left,yPlan);ctx.lineTo(ca.right,yPlan);ctx.stroke();
+        ctx.globalAlpha=1;ctx.setLineDash([]);
+        ctx.fillStyle=CC.plan;ctx.font="bold 10px 'Manrope',sans-serif";
+        ctx.fillText('ПЛАН '+fmtM(PLAN_TOTAL),ca.left+6,yPlan-5);
+        ctx.restore();
+      }
+      /* monthly vertical grid lines on 1st of each month */
+      const MONTHS_RU=['','янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
+      for(let m=1;m<=12;m++){
+        const mo=`2026-${String(m).padStart(2,'0')}-01`;
+        const mIdx=allDates.indexOf(mo);
+        if(mIdx<0)continue;
+        const xM=scales.x.getPixelForValue(mIdx);
+        ctx.save();
+        ctx.strokeStyle='rgba(72,80,112,0.35)';ctx.lineWidth=1;ctx.setLineDash([]);
+        ctx.beginPath();ctx.moveTo(xM,ca.top);ctx.lineTo(xM,ca.bottom);ctx.stroke();
+        ctx.fillStyle='rgba(126,141,176,0.6)';ctx.font="9px 'Inter',sans-serif";
+        ctx.fillText(MONTHS_RU[m],xM+3,ca.bottom+12);
+        ctx.restore();
+      }
+      /* vertical cutoff line at Nov 25 */
+      const cutIdx=allDates.indexOf('2026-11-25');
+      if(cutIdx>=0){
+        const xCut=scales.x.getPixelForValue(cutIdx);
+        ctx.save();
+        ctx.strokeStyle='rgba(126,141,176,0.6)';ctx.lineWidth=1.5;ctx.setLineDash([4,3]);
+        ctx.beginPath();ctx.moveTo(xCut,ca.top);ctx.lineTo(xCut,ca.bottom);ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle='rgba(126,141,176,0.9)';ctx.font="bold 9px 'Inter',sans-serif";
+        ctx.fillText('25 ноя',xCut+4,ca.top+13);
+        ctx.restore();
+      }
+    }
+  };
+
+  /* custom tick filter: only show tick labels where label != '' */
+  const cfg={
+    type:'line',
+    data:{
+      labels:allDates.map((_,i)=>i), /* use index as x */
+      datasets:ds
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,animation:{duration:200},
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{
+          display:true,position:'top',
+          labels:{
+            color:'#7e8db0',font:{size:11,family:"'Inter',sans-serif"},
+            boxWidth:28,boxHeight:3,padding:20,
+            filter:(item)=>{
+              return['Итого · факт','МГ · факт','ГЛ · факт','ЗА · факт','Итого · прогноз'].includes(item.text);
+            },
+            generateLabels:(chart)=>{
+              const map={'Итого · факт':'Итого (факт)','МГ · факт':'МГ','ГЛ · факт':'ГЛ','ЗА · факт':'ЗА','Итого · прогноз':'Прогноз'};
+              return Chart.defaults.plugins.legend.labels.generateLabels(chart)
+                .filter(it=>map[it.text])
+                .map(it=>{it.text=map[it.text];it.lineDash=[];return it;});
+            }
+          },
+          align:'center'
+        },
+        tooltip:{
+          backgroundColor:'#161b28',titleColor:'#7e8db0',bodyColor:'#dde3f5',
+          borderColor:'#252d45',borderWidth:1,padding:10,
+          callbacks:{
+            title:items=>{const i=items[0].dataIndex;return allDates[i]?allDates[i].slice(5).split('-').reverse().join('.')+ ' 2026':''},
+            label:ctx=>ctx.raw==null?null:' '+ctx.dataset.label+': '+fmtM(ctx.raw)
+          }
+        }
+      },
+      scales:{
+        x:{
+          type:'linear',min:0,max:allDates.length-1,
+          ticks:{
+            color:'rgba(0,0,0,0)',
+            font:{size:9,family:"'Inter',monospace"},
+            maxRotation:0,
+            autoSkip:false,
+            includeBounds:false,
+            afterBuildTicks:(axis)=>{
+              /* only keep 1st of each month as invisible anchors */
+              axis.ticks=allDates
+                .map((dt,i)=>({value:i,label:''}))
+                .filter((_,i)=>{const dt=allDates[i];return dt&&dt.endsWith('-01')});
+            },
+            callback:()=>null,
+          },
+          grid:{
+            color:'rgba(0,0,0,0)',
+            lineWidth:0,
+            drawTicks:false,
+          },
+          border:{display:false}
+        },
+        y:{
+          ticks:{color:'#485070',font:{size:11,family:"'Fira Code',monospace"},callback:v=>fmtM(v)},
+          grid:{color:'rgba(37,45,69,0.4)'},border:{display:false}
+        }
+      }
+    },
+    plugins:[overlayPlugin]
+  };
+
+  if(mainChart){
+    mainChart.data.labels=allDates.map((_,i)=>i);
+    mainChart.data.datasets.forEach((s,i)=>{if(ds[i]){s.data=ds[i].data;s.borderColor=ds[i].borderColor;s.borderWidth=ds[i].borderWidth}});
+    mainChart.update('none');
+  }else{
+    const c=document.getElementById('main-chart');
+    if(c) mainChart=new Chart(c,cfg);
+  }
+}
+
+function resetSliders(){
+  document.getElementById('sl-spp-mg').value=BASE_SPP.mg;
+  document.getElementById('sl-spp-gl').value=BASE_SPP.gl;
+  document.getElementById('sl-spp-za').value=BASE_SPP.za;
+  document.getElementById('sl-drr').value=BASE_DRR;
+  recalc();
+}
+
+function initLab(){
+  const btn=document.getElementById('lab-btn'),panel=document.getElementById('lab-panel');
+  btn.addEventListener('click',()=>{
+    const open=panel.style.display==='block';
+    panel.style.display=open?'none':'block';
+    btn.textContent=open?'🔬 Лаборатория дизайна ▼':'🔬 Лаборатория дизайна ▲';
+  });
+  function lr(id,dec,cb){
+    const el=document.getElementById(id),dv=document.getElementById(id+'-v');
+    if(!el)return;
+    el.addEventListener('input',()=>{const v=parseFloat(el.value);if(dv)dv.textContent=v.toFixed(dec);cb(v)});
+  }
+  function lc(id,cb){const el=document.getElementById(id);if(el)el.addEventListener('input',()=>cb(el.value))}
+  lr('lab-lw-fact',1,v=>{LW.fact=v;rebuildChart()});
+  lr('lab-lw-mdl',1,v=>{LW.mdl=v;rebuildChart()});
+  lc('lab-col-m2',v=>{CC.m2=v;rebuildChart()});
+  lc('lab-col-fact',v=>{CC.fact=v;rebuildChart()});
+  lc('lab-col-plan',v=>{CC.plan=v;rebuildChart()});
+  document.getElementById('lab-lw-fact').value=LW.fact;
+  document.getElementById('lab-lw-fact-v').textContent=LW.fact.toFixed(1);
+  document.getElementById('lab-lw-mdl').value=LW.mdl;
+  document.getElementById('lab-lw-mdl-v').textContent=LW.mdl.toFixed(1);
+  ['m2','fact','plan'].forEach(k=>{const el=document.getElementById('lab-col-'+k);if(el)el.value=CC[k]});
+}
+function rebuildChart(){if(mainChart){mainChart.destroy();mainChart=null}recalc()}
+function toggleFcTech(btn){
+  const el=document.getElementById('fc-tech');
+  const open=el.style.display==='block';
+  el.style.display=open?'none':'block';
+  btn.textContent=open?'ℹ Методология':'✕ Скрыть';
+}
+
+function applyFont(uiFont,monoFont){
+  document.body.style.fontFamily=`'${uiFont}',system-ui,sans-serif`;
+  /* шрифты без точки в нуле — отключаем zero feature явно */
+  const noZeroFonts=['Ubuntu Mono','Fira Code','Courier Prime','Fira Code','Source Code Pro','Noto Sans Mono','Inconsolata'];
+  const ffs=noZeroFonts.includes(monoFont)?'"zero" 0,"liga" 0':'"zero" 0';
+  /* update all mono elements */
+  const monoEls=document.querySelectorAll('.fact-val,.fact-plan-line,.fact-daily-val,.cab-val,.fc-val,.sl-val,.gauge-ticks,.gm-plan-badge,.gm-tick-label,.sl-minmax,.lab-v,.gm-plan-label,.gm-fact-badge,.gm-forecast-badge,.fact-daily-pct');
+  monoEls.forEach(el=>{
+    el.style.fontFamily=`'${monoFont}',monospace`;
+    el.style.fontFeatureSettings=ffs;
+    el.style.fontVariantNumeric='normal';
+  });
+  rebuildChart();
+}
+
+window.addEventListener('DOMContentLoaded',()=>{
+  ['sl-spp-mg','sl-spp-gl','sl-spp-za','sl-drr'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.addEventListener('input',recalc);
+  });
+  document.getElementById('reset-btn').addEventListener('click',resetSliders);
+  document.getElementById('theme-btn').addEventListener('click',()=>{
+    const r=document.documentElement;
+    r.setAttribute('data-theme',r.getAttribute('data-theme')==='light'?'dark':'light');
+    rebuildChart();
+  });
+  initLab();
+  recalc();
+});
+
+/* ── КОМБО-ЧАРТ: Нарастающий итог + Оборот по месяцам ─────────────────── */
+const COMBO_ALL_LABELS=["01.01","02.01","03.01","04.01","05.01","06.01","07.01","08.01","09.01","10.01","11.01","12.01","13.01","14.01","15.01","16.01","17.01","18.01","19.01","20.01","21.01","22.01","23.01","24.01","25.01","26.01","27.01","28.01","29.01","30.01","31.01","01.02","02.02","03.02","04.02","05.02","06.02","07.02","08.02","09.02","10.02","11.02","12.02","13.02","14.02","15.02","16.02","17.02","18.02","19.02","20.02","21.02","22.02","23.02","24.02","25.02","26.02","27.02","28.02","01.03","02.03","03.03","04.03","05.03","06.03","07.03","08.03","09.03","10.03","11.03","12.03","13.03","14.03","15.03","16.03","17.03","18.03","19.03","20.03","21.03","22.03","23.03","24.03","25.03","26.03","27.03","28.03","29.03","30.03","31.03","01.04","02.04","03.04","04.04","05.04","06.04","07.04","08.04","09.04","10.04","11.04","12.04","13.04","14.04","15.04","16.04","17.04","18.04","19.04","20.04","21.04","22.04","23.04","24.04","25.04","26.04","27.04","28.04","29.04","30.04","01.05","02.05","03.05","04.05","05.05","06.05","07.05","08.05","09.05","10.05","11.05","12.05","13.05","14.05","15.05","16.05","17.05","18.05","19.05","20.05","21.05","22.05","23.05","24.05","25.05","26.05","27.05","28.05","29.05","30.05","31.05","01.06","02.06","03.06","04.06","05.06","06.06","07.06","08.06","09.06","10.06","11.06","12.06","13.06","14.06","15.06","16.06","17.06","18.06","19.06","20.06","21.06","22.06","23.06","24.06","25.06","26.06","27.06","28.06","29.06","30.06","01.07","02.07","03.07","04.07","05.07","06.07","07.07","08.07","09.07","10.07","11.07","12.07","13.07","14.07","15.07","16.07","17.07","18.07","19.07","20.07","21.07","22.07","23.07","24.07","25.07","26.07","27.07","28.07","29.07","30.07","31.07","01.08","02.08","03.08","04.08","05.08","06.08","07.08","08.08","09.08","10.08","11.08","12.08","13.08","14.08","15.08","16.08","17.08","18.08","19.08","20.08","21.08","22.08","23.08","24.08","25.08","26.08","27.08","28.08","29.08","30.08","31.08","01.09","02.09","03.09","04.09","05.09","06.09","07.09","08.09","09.09","10.09","11.09","12.09","13.09","14.09","15.09","16.09","17.09","18.09","19.09","20.09","21.09","22.09","23.09","24.09","25.09","26.09","27.09","28.09","29.09","30.09","01.10","02.10","03.10","04.10","05.10","06.10","07.10","08.10","09.10","10.10","11.10","12.10","13.10","14.10","15.10","16.10","17.10","18.10","19.10","20.10","21.10","22.10","23.10","24.10","25.10","26.10","27.10","28.10","29.10","30.10","31.10","01.11","02.11","03.11","04.11","05.11","06.11","07.11","08.11","09.11","10.11","11.11","12.11","13.11","14.11","15.11","16.11","17.11","18.11","19.11","20.11","21.11","22.11","23.11","24.11","25.11","26.11","27.11","28.11","29.11","30.11","01.12","02.12","03.12","04.12","05.12","06.12","07.12","08.12","09.12","10.12","11.12","12.12","13.12","14.12","15.12","16.12","17.12","18.12","19.12","20.12","21.12","22.12","23.12","24.12","25.12","26.12","27.12","28.12","29.12","30.12","31.12"];
+const COMBO_FACT_VALS=(()=>{
+  const factMap={
+    "01.01":-6594,"05.01":13837406,"10.01":33660286,"15.01":55855368,"20.01":74570298,"25.01":91188152,
+    "30.01":106728837,"04.02":124568611,"09.02":145409525,"14.02":169114623,"19.02":191407604,"24.02":214442009,
+    "01.03":233381131,"06.03":254969414,"11.03":275249335,"16.03":290624611,"21.03":302273273,"26.03":313056286,
+    "31.03":323235509,"05.04":334298470,"10.04":344075831,"15.04":354270026,"20.04":366783949,"25.04":380868478,
+    "30.04":394083963,"05.05":408902546,"10.05":431622081,"15.05":454360610,"20.05":477145874,"25.05":499938030,
+    "30.05":524010794,"04.06":547465257,"09.06":568219974,"14.06":588916066,"19.06":610405922,"24.06":629182270,
+    "29.06":648345662,"04.07":669288385,"09.07":687506436,"14.07":705960503,"19.07":722270312,"24.07":736003137,
+    "29.07":749072477,"03.08":761784811,"08.08":774144415,"13.08":786557525,"18.08":799426150,"23.08":815202747,
+    "28.08":832172904,"02.09":847189619,"07.09":863802347,"12.09":880897074,"17.09":899649607,"22.09":918519108,
+    "27.09":937439759,"02.10":957305032,"07.10":975099206,"12.10":989244585,"17.10":1001025385,"22.10":1010624826,
+    "27.10":1018996310,"01.11":1026791722,"06.11":1034261913,"11.11":1041555245,"16.11":1049296398,"21.11":1055902296,"25.11":1061008029
+  };
+  return COMBO_ALL_LABELS.map(l=>factMap[l]!==undefined?factMap[l]:null);
+})();
+const COMBO_MONTH_MID=["15.01","14.02","15.03","15.04","15.05","15.06","15.07","15.08","14.09","15.10","12.11","15.12"];
+const COMBO_MONTH_LABELS=['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
+const COMBO_STACK_FACT_BASE=[109789000,119773000,93674000,70848000,134777000,123502000,101718000,87868000,106803000,76476000,35780000,null];
+const COMBO_NOV_FACT=35780000;
+const COMBO_GRID_TICKS=new Set(['01.01','01.02','01.03','01.04','01.05','01.06','01.07','01.08','01.09','01.10','01.11','01.12']);
+const COMBO_PLAN=1090400169;
+
+function buildComboProjection(sppMg,sppGl,sppZa,drrTotal){
+  const sN={mg:sppMg,gl:sppGl,za:sppZa}, ar=drrTotal/BASE_DRR;
+  const proj=[];
+  const start=new Date('2026-11-26'), end=new Date('2026-12-31');
+  for(let d=new Date(start),i=0;d<=end;d.setDate(d.getDate()+1),i++){
+    const dow=(d.getDay()+6)%7, dec97=Math.pow(0.97,i/7);
+    const date=d.toISOString().slice(0,10);
+    const r={date,mg:0,gl:0,za:0};
+    ['mg','gl','za'].forEach(c=>{
+      let mult=1+BETA_SPP[c]*(sN[c]-BASE_SPP[c]);
+      if(EPS_HIST[c]>0&&ar>0) mult+=EPS_HIST[c]*Math.log(ar);
+      r[c]=Math.max(0,TREND[c].base*DOW_W[c][dow]*dec97*mult);
+    });
+    proj.push(r);
+  }
+  return proj;
+}
+
+function buildComboFcData(proj){
+  const fcMap={'25.11':1061008029};
+  let cum=1061008029;
+  proj.forEach(r=>{
+    cum+=r.mg+r.gl+r.za;
+    const[,m,d]=r.date.split('-');
+    fcMap[`${d}.${m}`]=cum;
+  });
+  let novFc=0, decFc=0;
+  proj.forEach(r=>{
+    if(r.date<='2026-11-30') novFc+=r.mg+r.gl+r.za;
+    else decFc+=r.mg+r.gl+r.za;
+  });
+  return{fcMap,novFc:Math.round(novFc),decFc:Math.round(decFc),total31:fcMap['31.12']||1061008029};
+}
+
+function buildMonthlyChart(){
+  // Функция заменена комбо-чартом. Оставлена как заглушка во избежание ошибок.
+  return;
+}
+
+function buildComboChart(proj){
+  const ctx=document.getElementById('combo-chart');
+  if(!ctx) return;
+
+  const{fcMap,novFc,decFc,total31}=buildComboFcData(proj);
+
+  let crossLabel=null;
+  let cumChk=1061008029;
+  for(const r of proj){
+    cumChk+=r.mg+r.gl+r.za;
+    if(cumChk>=COMBO_PLAN){
+      const[,m,d]=r.date.split('-');
+      crossLabel=`${d}.${m}`; break;
+    }
+  }
+
+  const fcAligned=COMBO_ALL_LABELS.map(l=>fcMap[l]!==undefined?Math.round(fcMap[l]):null);
+  const planLine =COMBO_ALL_LABELS.map(()=>COMBO_PLAN);
+  const dailyPlan=COMBO_ALL_LABELS.map((_,i)=>Math.round(COMBO_PLAN/365*(i+1)));
+  const crossPt  =COMBO_ALL_LABELS.map(l=>(crossLabel&&l===crossLabel)?COMBO_PLAN:null);
+
+  const STACK_FC=[null,null,null,null,null,null,null,null,null,null,novFc,decFc];
+  const barDataFact=COMBO_ALL_LABELS.map(lbl=>{
+    const midIdx=COMBO_MONTH_MID.indexOf(lbl);
+    return midIdx>=0?COMBO_STACK_FACT_BASE[midIdx]:null;
+  });
+  const barDataFc=COMBO_ALL_LABELS.map(lbl=>{
+    const midIdx=COMBO_MONTH_MID.indexOf(lbl);
+    return midIdx>=0?STACK_FC[midIdx]:null;
+  });
+
+  const fmtLeft=v=>v>=1e9?(v/1e9).toFixed(2)+' млрд':(v/1e6).toFixed(0)+' М';
+  const fmtRight=v=>(v/1e6).toFixed(0)+' млн';
+  const fmtMln=v=>(v/1e6).toFixed(2)+' млн ₽';
+
+  const isDk=window.matchMedia('(prefers-color-scheme:dark)').matches||document.documentElement.getAttribute('data-theme')==='dark';
+  const GRID_C=isDk?'rgba(72,80,112,0.25)':'rgba(0,0,0,0.07)';
+  const TICK_C=isDk?'#7e8db0':'#8898cc';
+  const BG_C=isDk?'#161b28':'#fff';
+  const BC_C=isDk?'#252d45':'#e4e7ed';
+  const FG_C=isDk?'#dde3f5':'#1a2040';
+
+  if(window._comboChart) window._comboChart.destroy();
+  window._comboChart=new Chart(ctx,{
+    data:{
+      labels:COMBO_ALL_LABELS,
+      datasets:[
+        {type:'bar',label:'Оборот факт',data:barDataFact,
+          backgroundColor:'rgba(75,130,245,0.5)',borderColor:'rgba(75,130,245,0.85)',
+          borderWidth:1,borderRadius:3,borderSkipped:false,
+          stack:'s',yAxisID:'y1',barPercentage:28,categoryPercentage:1,order:10},
+        {type:'bar',label:'Оборот прогноз',data:barDataFc,
+          backgroundColor:'rgba(46,201,122,0.35)',borderColor:'rgba(46,201,122,0.8)',
+          borderWidth:1.5,borderRadius:3,borderSkipped:false,
+          stack:'s',yAxisID:'y1',barPercentage:28,categoryPercentage:1,order:10},
+        {type:'line',label:'Факт нарастающим итогом',data:COMBO_FACT_VALS,
+          borderColor:'#4b82f5',backgroundColor:'rgba(75,130,245,.06)',
+          borderWidth:2.5,pointRadius:0,spanGaps:true,tension:0.3,fill:false,
+          yAxisID:'y',order:3},
+        {type:'line',label:'Прогноз (buildProjection)',data:fcAligned,
+          borderColor:'#2ec97a',backgroundColor:'rgba(46,201,122,.06)',
+          borderWidth:2.5,pointRadius:0,spanGaps:true,tension:0.3,fill:true,
+          yAxisID:'y',order:2},
+        {type:'line',label:'План 100%',data:planLine,
+          borderColor:'#22c55e',borderWidth:1.5,
+          borderDash:[6,4],pointRadius:0,fill:false,
+          yAxisID:'y',order:4},
+        {type:'line',label:'Равномерный план (1/365)',data:dailyPlan,
+          borderColor:'#f59e0b',borderWidth:1.5,
+          borderDash:[3,3],pointRadius:0,fill:false,
+          yAxisID:'y',order:5},
+        {type:'line',label:'Пересечение плана',data:crossPt,
+          borderColor:'#22c55e',backgroundColor:'#22c55e',
+          pointRadius:9,pointStyle:'rectRot',showLine:false,
+          yAxisID:'y',order:1}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,animation:{duration:0},
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{position:'top',labels:{color:TICK_C,boxWidth:16,font:{size:11},
+          filter:item=>item.datasetIndex!==6}},
+        tooltip:{
+          backgroundColor:BG_C,borderColor:BC_C,borderWidth:1,
+          titleColor:FG_C,bodyColor:TICK_C,padding:10,
+          callbacks:{
+            title:items=>{
+              const midIdx=COMBO_MONTH_MID.indexOf(COMBO_ALL_LABELS[items[0].dataIndex]);
+              if(midIdx>=0) return COMBO_MONTH_LABELS[midIdx];
+              return COMBO_ALL_LABELS[items[0].dataIndex];
+            },
+            beforeBody:items=>{
+              const midIdx=COMBO_MONTH_MID.indexOf(COMBO_ALL_LABELS[items[0].dataIndex]);
+              if(midIdx<0) return[];
+              const ch=window._comboChart;
+              if(midIdx===10){
+                const novT=(ch.data.datasets[0].data[items[0].dataIndex]||0)+
+                            (ch.data.datasets[1].data[items[0].dataIndex]||0);
+                return['▸ Итого ноябрь: '+fmtMln(novT),
+                  '  Факт 1–25 ноя: '+fmtMln(COMBO_NOV_FACT),
+                  '  Прогноз 26–30 ноя: '+fmtMln(ch.data.datasets[1].data[items[0].dataIndex]||0)];
+              }
+              if(midIdx===11) return['  Прогноз (весь месяц): '+fmtMln(ch.data.datasets[1].data[items[0].dataIndex]||0)];
+              return[];
+            },
+            label:item=>{
+              if(item.parsed.y===null) return null;
+              const midIdx=COMBO_MONTH_MID.indexOf(COMBO_ALL_LABELS[item.dataIndex]);
+              if((item.datasetIndex===0||item.datasetIndex===1)&&(midIdx===10||midIdx===11)) return null;
+              if(item.datasetIndex===0||item.datasetIndex===1){
+                if(midIdx<0) return null;
+                return '  '+COMBO_MONTH_LABELS[midIdx]+': '+fmtMln(item.parsed.y);
+              }
+              if(item.datasetIndex===6) return null;
+              const fmt=v=>v>=1e9?(v/1e9).toFixed(3)+' млрд ₽':(v/1e6).toFixed(0)+' млн ₽';
+              return '  '+item.dataset.label+': '+fmt(item.parsed.y);
+            }
+          }
+        }
+      },
+      scales:{
+        x:{
+          ticks:{color:TICK_C,maxRotation:0,font:{size:10},autoSkip:false,
+            callback(val,i){const lbl=this.getLabelForValue(val);return COMBO_GRID_TICKS.has(lbl)?lbl:null;}},
+          afterBuildTicks(axis){
+            axis.ticks=axis.ticks.filter(t=>{const lbl=COMBO_ALL_LABELS[t.value];return lbl&&COMBO_GRID_TICKS.has(lbl);});
+          },
+          grid:{color:GRID_C}
+        },
+        y:{position:'left',
+          ticks:{color:TICK_C,font:{size:10},callback:fmtLeft},
+          grid:{color:GRID_C}},
+        y1:{position:'right',
+          ticks:{color:'#38bdf8',font:{size:10},callback:fmtRight},
+          grid:{drawOnChartArea:false},
+          title:{display:true,text:'Оборот за месяц',color:'#38bdf8',font:{size:10}}}
+      }
+    }
+  });
+
+  const sub=document.getElementById('combo-chart-sub');
+  if(sub){
+    const pct=(total31/COMBO_PLAN*100).toFixed(1);
+    const crossStr=crossLabel?crossLabel+'.2026':'не достигнет';
+    sub.textContent='Прогноз 31.12: '+Math.round(total31).toLocaleString('ru-RU')+' ₽ ('+pct+'% плана) · 100% плана ≈ '+crossStr;
+  }
+}
+
+/* ── НАРАСТАЮЩИЙ ИТОГ (deprecated — заменён на buildComboChart) ── */
+function buildCumChart(){
+  // Функция заменена комбо-чартом. Оставлена как заглушка во избежание ошибок.
+  return;
+  /* eslint-disable no-unreachable */
+  const ctx=document.getElementById('cum-chart');
+  if(!ctx) return;
+
+  const PLAN=1090400169;
+  // Факт — каждые 5 дней (точные значения нарастающим итогом, ₽)
+  const FACT_CUM=[
+    ["01.01",-6594],["05.01",13837406],["10.01",33660286],
+    ["15.01",55855368],["20.01",74570298],["25.01",91188152],
+    ["30.01",106728837],["04.02",124568611],["09.02",145409525],
+    ["14.02",169114623],["19.02",191407604],["24.02",214442009],
+    ["01.03",233381131],["06.03",254969414],["11.03",275249335],
+    ["16.03",290624611],["21.03",302273273],["26.03",313056286],
+    ["31.03",323235509],["05.04",334298470],["10.04",344075831],
+    ["15.04",354270026],["20.04",366783949],["25.04",380868478],
+    ["30.04",394083963],["05.05",408902546],["10.05",431622081],
+    ["15.05",454360610],["20.05",477145874],["25.05",499938030],
+    ["30.05",524010794],["04.06",547465257],["09.06",568219974],
+    ["14.06",588916066],["19.06",610405922],["24.06",629182270],
+    ["29.06",648345662],["04.07",669288385],["09.07",687506436],
+    ["14.07",705960503],["19.07",722270312],["24.07",736003137],
+    ["29.07",749072477],["03.08",761784811],["08.08",774144415],
+    ["13.08",786557525],["18.08",799426150],["23.08",815202747],
+    ["28.08",832172904],["02.09",847189619],["07.09",863802347],
+    ["12.09",880897074],["17.09",899649607],["22.09",918519108],
+    ["27.09",937439759],["02.10",957305032],["07.10",975099206],
+    ["12.10",989244585],["17.10",1001025385],["22.10",1010624826],
+    ["27.10",1018996310],["01.11",1026791722],["06.11",1034261913],
+    ["11.11",1041555245],["16.11",1049296398],["21.11",1055902296],["25.11",1061008029]
+  ];
+
+  // Прогноз 26.11 → 31.12 (decay 0.97/сут от 25.11)
+  const fcBase=1061008029;
+  const FORECAST=[
+    ["30.11",1067106583],["05.12",1072555549],["10.12",1076970216],
+    ["15.12",1080812550],["20.12",1084147160],["25.12",1087105482],
+    ["30.12",1089477085],["31.12",1089945359]
+  ];
+
+  const factLabels=FACT_CUM.map(d=>d[0]);
+  const foreLabels=FORECAST.map(d=>d[0]);
+  const allLabels=[...factLabels,...foreLabels];
+  const nF=factLabels.length;
+
+  const factData=[...FACT_CUM.map(d=>d[1]),...Array(FORECAST.length).fill(null)];
+  const foreData=[...Array(nF-1).fill(null),FACT_CUM[nF-1][1],...FORECAST.map(d=>d[1])];
+  const planData=Array(allLabels.length).fill(PLAN);
+
+  let crossIdx=-1;
+  for(let i=nF;i<allLabels.length;i++){if(foreData[i]>=PLAN){crossIdx=i;break;}}
+
+  const isDk=window.matchMedia('(prefers-color-scheme:dark)').matches||document.documentElement.getAttribute('data-theme')==='dark';
+  const C_FACT_L=isDk?'#60a5fa':'#2563eb';
+  const C_FORE=isDk?'#93c5fd':'#60a5fa';
+  const GC=isDk?'rgba(255,255,255,.06)':'rgba(0,0,0,.06)';
+  const TC=isDk?'#5a6180':'#9aa0ad';
+  const BG=isDk?'#161b28':'#fff';
+  const BC=isDk?'#252d45':'#e4e7ed';
+  const FG=isDk?'#e8eaf0':'#1a2040';
+
+  const fmtRub=n=>n==null?null:Math.round(n).toLocaleString('ru-RU')+' ₽';
+  const fmtPct=n=>(n/PLAN*100).toFixed(2)+'%';
+
+  if(window._cumChart) window._cumChart.destroy();
+  window._cumChart=new Chart(ctx,{
+    type:'line',
+    data:{labels:allLabels,datasets:[
+      {label:'Факт',data:factData,
+        borderColor:C_FACT_L,borderWidth:2.5,
+        pointRadius:factData.map((_,i)=>i===nF-1?5:0),
+        pointBackgroundColor:C_FACT_L,fill:false,tension:0.3,spanGaps:false},
+      {label:'Прогноз',data:foreData,
+        borderColor:C_FORE,borderWidth:2,borderDash:[5,4],
+        pointRadius:foreData.map((_,i)=>i===crossIdx?9:0),
+        pointBackgroundColor:foreData.map((_,i)=>i===crossIdx?'#f59e0b':C_FORE),
+        pointBorderColor:foreData.map((_,i)=>i===crossIdx?'#fff':'transparent'),
+        pointBorderWidth:foreData.map((_,i)=>i===crossIdx?2:0),
+        fill:false,tension:0.3,spanGaps:false},
+      {label:'100% плана',data:planData,
+        borderColor:'rgba(239,68,68,.42)',borderWidth:1.5,borderDash:[3,4],
+        pointRadius:0,fill:false,tension:0}
+    ]},
+    options:{
+      responsive:true,maintainAspectRatio:false,animation:{duration:0},
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:BG,borderColor:BC,borderWidth:1,
+          titleColor:FG,bodyColor:TC,padding:10,
+          callbacks:{
+            title:items=>items[0]?.label||'',
+            label:item=>{
+              const v=item.raw;
+              if(v===null) return null;
+              const lbl=item.dataset.label;
+              if(lbl==='100% плана') return '  План: '+fmtRub(PLAN);
+              return '  '+lbl+': '+fmtRub(v)+' · '+fmtPct(v);
+            },
+            afterBody:items=>{
+              const fi=items.find(i=>i.dataset.label==='Прогноз'&&i.raw!=null);
+              if(fi&&fi.dataIndex===crossIdx) return['  ✦ Выход на 100% плана'];
+              return[];
+            }
+          }
+        }
+      },
+      scales:{
+        x:{grid:{color:GC},
+          ticks:{color:TC,font:{size:10},maxRotation:0,maxTicksLimit:14}},
+        y:{grid:{color:GC},
+          ticks:{color:TC,font:{size:10},
+            callback:v=>v>=1e9?(v/1e9).toFixed(2)+' B':v>=1e6?(v/1e6).toFixed(0)+' M':v},
+          title:{display:true,text:'₽',color:TC,font:{size:10}}}
+      }
+    }
+  });
+}
+</script>
+
+<!-- ═══ MARKUP ═══ -->
+<header class="hdr">
+  <div>
+    <h1>WB Оборот 2026</h1>
+    <div class="sub">Wildberries · МГ, ГЛ, ЗА · Прогноз выполнения плана</div>
+  </div>
+  <div class="hdr-r">
+    <div class="upd">
+      <strong>Данные на 25.11</strong>
+      <span>Обновлено 26.11.2026</span>
+    </div>
+    <button class="icon-btn" id="theme-btn">☀︎</button>
+  </div>
+</header>
+
+<!-- ROW1: fact + gauge -->
+<div class="row1">
+  <div class="fact-card">
+    <div class="fact-lbl" id="fact-lbl">Общий факт на …</div>
+    <div class="fact-val" id="fact-val-total" style="font-size:22px">… <span style="font-size:14px;color:var(--fg2)">₽</span></div>
+    <div id="kpi-pct-total" class="fact-pct pct-w"></div>
+    <div class="fact-plan-line">план: 1 090 400 169 ₽</div>
+    <div class="fact-rem" id="fact-rem">осталось: … млн ₽</div>
+    <div class="fact-rem" id="fact-100pct" style="color:var(--good)">100% к …</div>
+    <div class="fact-days" id="fact-days">… дней · … → 31.12.2026</div>
+    <div class="fact-daily">
+      <div class="fact-daily-row">
+        <span class="fact-daily-lbl">Нужно в день</span>
+        <span class="fact-daily-val neutral" id="need-day-val">—</span>
+      </div>
+      <div class="fact-daily-row">
+        <span class="fact-daily-lbl" id="last-day-lbl">Факт …</span>
+        <span class="fact-daily-pct" id="last-day-pct" style="font-family:'Fira Code',monospace;font-weight:600;font-size:11px;color:var(--fg2);margin-right:6px">—</span>
+        <span class="fact-daily-val" id="last-day-val">—</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="gauge-card">
+    <div class="gauge-title">Шкала выполнения плана (0 – 110%)</div>
+
+    <div class="gauge-zone">
+      <!-- track -->
+      <div class="gauge-track">
+        <div class="gauge-fill" id="gauge-fill"></div>
+      </div>
+
+      <!-- ФАКТ — above row A (top:0, height:34px) -->
+      <div class="gm-fact" id="g-fact">
+        <div class="gm-fact-badge" id="g-fact-badge">Факт —%</div>
+        <div class="gm-fact-stem"></div>
+      </div>
+
+      <!-- ПРОГНОЗ — зелёный тик на треке + badge ниже -->
+      <div class="gm-forecast" id="g-forecast">
+        <div class="gm-forecast-tick-on-track"></div>
+        <div class="gm-forecast-stem"></div>
+        <div class="gm-forecast-badge" id="g-forecast-badge">Прогноз —%</div>
+      </div>
+
+      <!-- ПЛАН — тик прямо на треке (как рычажок, оранжевый) -->
+      <div class="gm-plan" id="g-plan">
+        <div class="gm-plan-tick" id="g-plan-tick"></div>
+        <div class="gm-plan-label" id="g-plan-label">План 100%</div>
+      </div>
+    </div>
+
+    <!-- gauge ticks row — числовые метки -->
+    <div class="gauge-ticks" style="position:relative;height:16px;margin-top:6px">
+      <span style="left:0;transform:none">0%</span>
+      <span style="left:22.73%">25%</span>
+      <span style="left:45.45%">50%</span>
+      <span style="left:68.18%">75%</span>
+      <span style="right:0;transform:none">110%</span>
+    </div>
+    <!-- labels для Прогноза и Плана — позиционируются через JS -->
+    <div class="gm-ticks-row" style="margin-top:4px">
+      <span class="gm-tick-label lbl-forecast" id="lbl-forecast">Прогноз —%</span>
+      <span class="gm-tick-label lbl-plan" id="lbl-plan">План 100%</span>
+    </div>
+    <div class="gauge-legend" style="margin-top:8px">
+      <div class="gl-item"><span style="display:inline-block;width:14px;height:3px;background:#4b82f5;border-radius:2px"></span>Факт</div>
+      <div class="gl-item"><span style="display:inline-block;width:14px;height:3px;background:var(--forecast);border-radius:2px"></span>Прогноз</div>
+      <div class="gl-item"><span style="display:inline-block;width:14px;height:3px;background:var(--plan);border-radius:2px"></span>План</div>
+    </div>
+  </div>
+</div>
+
+<!-- ROW2: Кабинеты -->
+<div class="row2">
+  <div class="cab-card">
+    <div class="cab-name"><span class="cab-dot" style="background:var(--mg)"></span>Мегаполис</div>
+    <div class="cab-val" style="color:var(--mg)">857,8 <span style="font-size:12px;color:var(--fg2)">млн</span></div>
+    <div class="cab-pct" id="cab-pct-mg"></div>
+    <div class="cab-plan" id="cab-share-mg"></div>
+  </div>
+  <div class="cab-card">
+    <div class="cab-name"><span class="cab-dot" style="background:var(--gl)"></span>Галактика</div>
+    <div class="cab-val" style="color:var(--gl)">157,0 <span style="font-size:12px;color:var(--fg2)">млн</span></div>
+    <div class="cab-pct" id="cab-pct-gl"></div>
+    <div class="cab-plan" id="cab-share-gl"></div>
+  </div>
+  <div class="cab-card">
+    <div class="cab-name"><span class="cab-dot" style="background:var(--za)"></span>Заренхоф</div>
+    <div class="cab-val" style="color:var(--za)">45,0 <span style="font-size:12px;color:var(--fg2)">млн</span></div>
+    <div class="cab-pct" id="cab-pct-za"></div>
+    <div class="cab-plan" id="cab-share-za"></div>
+  </div>
+</div>
+
+
+<!-- SLIDERS -->
+<div class="sliders-sec">
+  <div class="sl-hdr">
+    <div class="sl-title">Параметры сценария</div>
+    <button class="reset-btn" id="reset-btn">↺ Базовый</button>
+  </div>
+  <div class="sl-cols">
+    <!-- Left: SPP -->
+    <div>
+      <div class="sl-col-title">СПП — скидка покупателям, %</div>
+      <div class="sl-row">
+        <div class="sl-name" style="margin-bottom:2px"><span class="cab-dot" style="background:var(--mg)"></span>Мегаполис</div>
+        <div style="position:relative;margin-top:28px;margin-bottom:4px">
+          <div id="dv-spp-mg" style="position:absolute;top:-24px;transform:translateX(-50%);font-size:11px;font-weight:700;font-family:'Fira Code',monospace;color:var(--mg);white-space:nowrap;pointer-events:none"></div>
+          <div class="spp-wrap">
+            <!-- МГ: историч. мин 12.15%, макс 36.17% из диапазона 0–40% -->
+            <div class="spp-green-band" style="left:30.375%;width:60.05%"></div>
+            <input type="range" class="h-slider" id="sl-spp-mg" min="0" max="40" step="0.1" value="14.42">
+          </div>
+        </div>
+        <div class="sl-minmax"><span>0%</span><span style="color:var(--good);font-size:9px">↕ 12–36%</span><span>40%</span></div>
+      </div>
+      <div class="sl-row">
+        <div class="sl-name" style="margin-bottom:2px"><span class="cab-dot" style="background:var(--gl)"></span>Галактика</div>
+        <div style="position:relative;margin-top:28px;margin-bottom:4px">
+          <div id="dv-spp-gl" style="position:absolute;top:-24px;transform:translateX(-50%);font-size:11px;font-weight:700;font-family:'Fira Code',monospace;color:var(--gl);white-space:nowrap;pointer-events:none"></div>
+          <div class="spp-wrap">
+            <!-- ГЛ: историч. мин 11.37%, макс 33.94% из диапазона 0–40% -->
+            <div class="spp-green-band" style="left:28.425%;width:56.425%"></div>
+            <input type="range" class="h-slider" id="sl-spp-gl" min="0" max="40" step="0.1" value="12.31">
+          </div>
+        </div>
+        <div class="sl-minmax"><span>0%</span><span style="color:var(--good);font-size:9px">↕ 11–34%</span><span>40%</span></div>
+      </div>
+      <div class="sl-row">
+        <div class="sl-name" style="margin-bottom:2px"><span class="cab-dot" style="background:var(--za)"></span>Заренхоф</div>
+        <div style="position:relative;margin-top:28px;margin-bottom:4px">
+          <div id="dv-spp-za" style="position:absolute;top:-24px;transform:translateX(-50%);font-size:11px;font-weight:700;font-family:'Fira Code',monospace;color:var(--za);white-space:nowrap;pointer-events:none"></div>
+          <div class="spp-wrap">
+            <!-- ЗА: историч. мин 17.97%, макс ~42% (> диапазон, обрезано до 40) из диапазона 0–40% -->
+            <div class="spp-green-band" style="left:44.925%;width:55.075%"></div>
+            <input type="range" class="h-slider" id="sl-spp-za" min="0" max="40" step="0.1" value="18.95">
+          </div>
+        </div>
+        <div class="sl-minmax"><span>0%</span><span style="color:var(--good);font-size:9px">↕ 18–40%</span><span>40%</span></div>
+      </div>
+      <div style="margin-top:8px;font-size:11px;color:var(--fg3)">
+        СПП итого (взвешенный):
+        <span id="dv-spp-tot" style="font-weight:700;font-family:'Fira Code',monospace;color:var(--accent)"></span>
+      </div>
+    </div>
+    <!-- Right: DRR -->
+    <div>
+      <div class="sl-col-title">ДРР — доля рекламных расходов, %</div>
+      <div class="sl-row">
+        <div class="sl-name" style="margin-bottom:2px">ДРР итого</div>
+        <!-- DRR green band BEHIND slider, value above lever -->
+        <div style="position:relative;margin-top:28px;margin-bottom:4px">
+          <div id="dv-drr" style="position:absolute;top:-24px;transform:translateX(-50%);font-size:11px;font-weight:700;font-family:'Fira Code',monospace;color:#7b93ff;white-space:nowrap;pointer-events:none"></div>
+          <div class="drr-wrap">
+            <div class="drr-green-band"></div>
+            <input type="range" class="h-slider" id="sl-drr" min="0" max="15" step="0.1" value="7.0">
+          </div>
+        </div>
+        <!-- tick marks: 0%, 4%, 9%, 15% at correct positions -->
+        <div style="position:relative;height:14px;font-size:9px;font-family:'Fira Code',monospace;">
+          <span style="position:absolute;left:0;color:var(--fg3)">0%</span>
+          <span style="position:absolute;left:26.67%;transform:translateX(-50%);color:var(--good);font-weight:700">4%</span>
+          <span style="position:absolute;left:60%;transform:translateX(-50%);color:var(--good);font-weight:700">9%</span>
+          <span style="position:absolute;right:0;color:var(--fg3)">15%</span>
+        </div>
+      </div>
+      <div style="margin-top:4px;font-size:11px;color:var(--fg3)">
+        базовый 7.0% · влияет на ГЛ и ЗА (ε &gt; 0)
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DESIGN LAB -->
+<button class="lab-btn" id="lab-btn">🔬 Лаборатория дизайна ▼</button>
+<div class="lab-panel" id="lab-panel" style="display:none">
+  <h3>🔬 Лаборатория дизайна</h3>
+  <div class="lab-grid">
+    <div class="lab-row">
+      <label>Толщина линии Итого</label>
+      <input type="range" id="lab-lw-fact" min="1" max="8" step="0.5" value="4.5">
+      <span class="lab-v" id="lab-lw-fact-v">4.5</span>
+    </div>
+    <div class="lab-row">
+      <label>Толщина линий кабинетов</label>
+      <input type="range" id="lab-lw-mdl" min="0.5" max="4" step="0.5" value="1.5">
+      <span class="lab-v" id="lab-lw-mdl-v">1.5</span>
+    </div>
+    <div class="lab-row"><label>Цвет прогноза М2</label><input type="color" id="lab-col-m2" value="#2ec97a"></div>
+    <div class="lab-row"><label>Цвет Итого (факт)</label><input type="color" id="lab-col-fact" value="#2ec97a"></div>
+    <div class="lab-row"><label>Цвет линии Плана</label><input type="color" id="lab-col-plan" value="#2ec97a"></div>
+  </div>
+
+  <!-- FONT LAB -->
+  <div style="margin-top:20px;border-top:1px solid var(--border);padding-top:16px">
+    <div style="font-size:10px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px">Типографика — текущие шрифты</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:16px">
+      <div style="background:var(--bg-card);border-radius:8px;padding:10px 12px">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg3);margin-bottom:4px">Заголовки / UI</div>
+        <div style="font-size:18px;font-weight:800;font-family:'Manrope',sans-serif;color:var(--fg)">Manrope 800</div>
+        <div style="font-size:11px;color:var(--fg2);margin-top:2px">h1, кнопки, лейблы кабинетов</div>
+      </div>
+      <div style="background:var(--bg-card);border-radius:8px;padding:10px 12px">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg3);margin-bottom:4px">Числа / Монофонт</div>
+        <div style="font-size:18px;font-weight:600;font-family:'Fira Code',monospace;color:var(--fg)">IBM Plex 600</div>
+        <div style="font-size:11px;color:var(--fg2);margin-top:2px">Факт, прогноз, слайдеры, тики оси</div>
+      </div>
+      <div style="background:var(--bg-card);border-radius:8px;padding:10px 12px">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg3);margin-bottom:4px">Текст / Метки</div>
+        <div style="font-size:14px;font-weight:400;font-family:'Manrope',sans-serif;color:var(--fg2)">Manrope 400–600</div>
+        <div style="font-size:11px;color:var(--fg2);margin-top:2px">Подписи, параграфы, тултипы</div>
+      </div>
+    </div>
+
+    <div style="font-size:10px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px">Альтернативные пары</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px">
+
+      <!-- Вариант A: Inter + JetBrains Mono -->
+      <div style="background:var(--bg-card);border-radius:8px;padding:12px 14px;border:1px solid var(--border)">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg3);margin-bottom:6px">Вариант A — Нейтральный</div>
+        <div style="font-size:17px;font-weight:800;font-family:'Inter',sans-serif;color:var(--fg)">Inter 800</div>
+        <div style="font-size:14px;font-weight:600;font-family:'JetBrains Mono',monospace;color:var(--accent);margin-top:4px">1 050 675 280 ₽</div>
+        <div style="font-size:11px;color:var(--fg2);margin-top:6px">Inter для UI + JetBrains Mono для цифр. Современный, читабельный. Рекомендуется для данных.</div>
+        <button onclick="applyFont('Inter','JetBrains Mono')" style="margin-top:8px;background:var(--accent);color:#fff;border:none;border-radius:5px;padding:4px 12px;font-size:11px;cursor:pointer;font-family:inherit">Применить</button>
+      </div>
+
+      <!-- Вариант B: DM Sans + Space Mono -->
+      <div style="background:var(--bg-card);border-radius:8px;padding:12px 14px;border:1px solid var(--border)">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg3);margin-bottom:6px">Вариант B — Деловой</div>
+        <div style="font-size:17px;font-weight:800;font-family:'DM Sans',sans-serif;color:var(--fg)">DM Sans 800</div>
+        <div style="font-size:14px;font-weight:700;font-family:'Space Mono',monospace;color:var(--accent);margin-top:4px">1 050 675 280 ₽</div>
+        <div style="font-size:11px;color:var(--fg2);margin-top:6px">DM Sans строгий + Space Mono с характером. Технический стиль, привлекает внимание к цифрам.</div>
+        <button onclick="applyFont('DM Sans','Space Mono')" style="margin-top:8px;background:var(--accent);color:#fff;border:none;border-radius:5px;padding:4px 12px;font-size:11px;cursor:pointer;font-family:inherit">Применить</button>
+      </div>
+
+      <!-- Вариант C: Manrope (текущий) + JetBrains Mono -->
+      <div style="background:var(--bg-card);border-radius:8px;padding:12px 14px;border:1px solid var(--border)">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg3);margin-bottom:6px">Вариант C — Текущий + апгрейд цифр</div>
+        <div style="font-size:17px;font-weight:800;font-family:'Manrope',sans-serif;color:var(--fg)">Manrope 800</div>
+        <div style="font-size:14px;font-weight:600;font-family:'JetBrains Mono',monospace;color:var(--accent);margin-top:4px">1 050 675 280 ₽</div>
+        <div style="font-size:11px;color:var(--fg2);margin-top:6px">Сохраняет Manrope для UI, заменяет IBM Plex → JetBrains Mono. Лучшая читаемость цифр.</div>
+        <button onclick="applyFont('Manrope','JetBrains Mono')" style="margin-top:8px;background:var(--accent);color:#fff;border:none;border-radius:5px;padding:4px 12px;font-size:11px;cursor:pointer;font-family:inherit">Применить</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ШРИФТЫ БЕЗ ТОЧКИ В НУЛЕ -->
+  <div style="margin-top:20px;border-top:1px solid var(--border);padding-top:16px">
+    <div style="font-size:10px;font-weight:700;color:var(--good);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px">Шрифты без точки в нуле</div>
+    <div style="font-size:11px;color:var(--fg3);margin-bottom:12px">Нуль без точки и без черты. Нажми «Применить» — шрифт сразу сменится во всём дашборде.</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px">
+
+      <!-- Ubuntu Mono — гарантированно чистый 0 -->
+      <div style="background:var(--bg-card);border-radius:8px;padding:12px 14px;border:1px solid var(--border)">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg3);margin-bottom:6px">Ubuntu Mono — мягкий</div>
+        <div style="font-size:22px;font-weight:700;font-family:'Ubuntu Mono',monospace;font-feature-settings:'zero' 0;font-variant-numeric:normal;color:var(--accent);line-height:1.1">1 050 675 280</div>
+        <div style="font-size:13px;font-weight:400;font-family:'Ubuntu Mono',monospace;font-feature-settings:'zero' 0;color:var(--fg2);margin-top:3px">96.4% · 1,05 млрд · 100%</div>
+        <div style="font-size:11px;color:var(--fg2);margin-top:6px">Округлый, мягкий. 0 — широкий овал без украшений. Хорошо смотрится в тёмной теме.</div>
+        <button onclick="applyFont('Manrope','Ubuntu Mono')" style="margin-top:8px;background:var(--accent);color:#fff;border:none;border-radius:5px;padding:4px 12px;font-size:11px;cursor:pointer;font-family:inherit">Применить</button>
+      </div>
+
+      <!-- Fira Code — чистый 0 по умолчанию (лигатуры не мешают) -->
+      <div style="background:var(--bg-card);border-radius:8px;padding:12px 14px;border:1px solid var(--border)">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg3);margin-bottom:6px">Fira Code — современный</div>
+        <div style="font-size:22px;font-weight:600;font-family:'Fira Code',monospace;font-feature-settings:'zero' 0,'liga' 0;font-variant-numeric:normal;color:var(--accent);line-height:1.1">1 050 675 280</div>
+        <div style="font-size:13px;font-weight:400;font-family:'Fira Code',monospace;font-feature-settings:'zero' 0,'liga' 0;color:var(--fg2);margin-top:3px">96.4% · 1,05 млрд · 100%</div>
+        <div style="font-size:11px;color:var(--fg2);margin-top:6px">Чёткий, современный. Mozilla. 0 — чистый овал, цифры хорошо выровнены по базовой.</div>
+        <button onclick="applyFont('Manrope','Fira Code')" style="margin-top:8px;background:var(--accent);color:#fff;border:none;border-radius:5px;padding:4px 12px;font-size:11px;cursor:pointer;font-family:inherit">Применить</button>
+      </div>
+
+      <!-- Courier Prime — классический -->
+      <div style="background:var(--bg-card);border-radius:8px;padding:12px 14px;border:1px solid var(--border)">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg3);margin-bottom:6px">Courier Prime — классика</div>
+        <div style="font-size:22px;font-weight:700;font-family:'Courier Prime',monospace;font-feature-settings:'zero' 0;font-variant-numeric:normal;color:var(--accent);line-height:1.1">1 050 675 280</div>
+        <div style="font-size:13px;font-weight:400;font-family:'Courier Prime',monospace;font-feature-settings:'zero' 0;color:var(--fg2);margin-top:3px">96.4% · 1,05 млрд · 100%</div>
+        <div style="font-size:11px;color:var(--fg2);margin-top:6px">Пропорциональный. Газетный стиль, цифры с засечками — строгий, легко читается.</div>
+        <button onclick="applyFont('Manrope','Courier Prime')" style="margin-top:8px;background:var(--accent);color:#fff;border:none;border-radius:5px;padding:4px 12px;font-size:11px;cursor:pointer;font-family:inherit">Применить</button>
+      </div>
+
+      <!-- Roboto Mono с явным отключением zero -->
+      <div style="background:var(--bg-card);border-radius:8px;padding:12px 14px;border:1px solid var(--border)">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg3);margin-bottom:6px">Roboto Mono — нейтральный</div>
+        <div style="font-size:22px;font-weight:600;font-family:'Fira Code',monospace;font-feature-settings:'zero' 0;font-variant-numeric:normal;color:var(--accent);line-height:1.1">1 050 675 280</div>
+        <div style="font-size:13px;font-weight:400;font-family:'Fira Code',monospace;font-feature-settings:'zero' 0;color:var(--fg2);margin-top:3px">96.4% · 1,05 млрд · 100%</div>
+        <div style="font-size:11px;color:var(--fg2);margin-top:6px">Google-стандарт, нейтральный. 0 без украшений — универсален для любого контекста.</div>
+        <button onclick="applyFont('Manrope','Fira Code')" style="margin-top:8px;background:var(--accent);color:#fff;border:none;border-radius:5px;padding:4px 12px;font-size:11px;cursor:pointer;font-family:inherit">Применить</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- КОМБО-ЧАРТ: Нарастающий итог + Оборот по месяцам (левая ось млрд / правая ось млн) -->
+<div class="chart-card" id="combo-chart-card">
+  <div class="chart-title">Нарастающий итог + Оборот по месяцам 2026</div>
+  <div class="chart-sub" id="combo-chart-sub">
+    Прогноз 31.12 пересчитывается по ползункам
+  </div>
+  <div class="chart-wrap" style="height:clamp(340px,46vh,500px);position:relative">
+    <canvas id="combo-chart" style="position:absolute;inset:0;width:100%!important;height:100%!important"></canvas>
+  </div>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px">
+    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--fg2)"><div style="width:12px;height:12px;border-radius:3px;background:rgba(75,130,245,.85);flex-shrink:0"></div>Оборот факт (млн ₽, прав. ось)</div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--fg2)"><div style="width:12px;height:12px;border-radius:3px;background:rgba(46,201,122,.65);flex-shrink:0"></div>Оборот прогноз (млн ₽, прав. ось)</div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--fg2)"><div style="width:22px;height:0;border-top:2.5px solid #4b82f5;flex-shrink:0;margin-top:1px"></div>Нараст. итог факт (млрд ₽)</div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--fg2)"><div style="width:22px;height:0;border-top:2px dashed #2ec97a;flex-shrink:0;margin-top:1px"></div>Нараст. итог прогноз (млрд ₽)</div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--fg2)"><div style="width:22px;height:0;border-top:1.5px dashed rgba(240,160,32,.7);flex-shrink:0;margin-top:1px"></div>100% плана (1 090.4 млн ₽)</div>
+  </div>
+</div>
+
+<!-- FC BLOCK (прогноз) — внизу -->
+<div class="fc-block">
+  <div class="fc-block-hdr">
+    <div>
+      <div class="fc-block-title">Прогноз выполнения плана на 31 декабря</div>
+      <div class="fc-block-sub">Расчёт на основе данных 24.11.2026</div>
+    </div>
+    <button class="fc-toggle-tech" onclick="toggleFcTech(this)">ℹ Методология</button>
+  </div>
+  <div class="fc-main-row">
+    <!-- Основной прогноз -->
+    <div>
+      <div style="font-size:10px;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;font-weight:600">Прогноз</div>
+      <div class="fc-big-num" id="fc-val-mn"></div>
+      <div class="fc-big-pct" id="fc-pct-mn"></div>
+      <div style="font-size:11px;color:var(--fg3);margin-top:4px">от плана 1 090 400 169 ₽</div>
+    </div>
+    <div class="fc-divider"></div>
+    <!-- Диапазон -->
+    <div class="fc-range-block">
+      <div class="fc-range-title">Диапазон сценариев</div>
+      <div class="fc-range-pair">
+        <div class="fc-range-item">
+          <div class="fc-range-item-lbl">Пессимистичный</div>
+          <div class="fc-range-item-rub" id="fc-range-rub-lo"></div>
+          <div class="fc-range-item-pct pct-w" id="fc-range-lo"></div>
+        </div>
+        <div class="fc-range-item">
+          <div class="fc-range-item-lbl">Оптимистичный</div>
+          <div class="fc-range-item-rub" id="fc-range-rub-hi"></div>
+          <div class="fc-range-item-pct pct-g" id="fc-range-hi"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Методология (скрыта по умолчанию) -->
+  <div class="fc-tech" id="fc-tech">
+    <div class="fc-tech-grid">
+      <div class="fc-tech-item"><dt>Основная модель</dt><dd>M_new = 0.6×avg28 + 0.4×trend28</dd></div>
+      <div class="fc-tech-item"><dt>Затухание (decay)</dt><dd>0.97 / сутки</dd></div>
+      <div class="fc-tech-item"><dt>MAE на бэктесте</dt><dd>3.4% (112 точек, 15.07–17.11)</dd></div>
+      <div class="fc-tech-item"><dt>Смещение модели</dt><dd>+0.4% (нейтральное)</dd></div>
+      <div class="fc-tech-item"><dt>Пессимистичный</dt><dd>M_lo: trend28, decay 0.95</dd></div>
+      <div class="fc-tech-item"><dt>Оптимистичный</dt><dd>M_hi: avg28, decay 1.0</dd></div>
+    </div>
+  </div>
+</div>
+
+<!-- ИНСТРУКЦИЯ / CHANGELOG -->
+<div class="chart-card" style="margin-top:12px">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px;flex-wrap:wrap">
+    <div class="chart-title" style="margin:0">Инструкция по обновлению</div>
+    <button onclick="this.closest('.chart-card').querySelector('.cl-body').toggleAttribute('hidden')"
+      style="background:var(--bg-panel);border:1px solid var(--border);border-radius:6px;color:var(--fg2);cursor:pointer;font-size:11px;padding:4px 10px;font-family:inherit">
+      Свернуть / развернуть
+    </button>
+  </div>
+  <div class="cl-body">
+    <!-- Автообновление -->
+    <div style="background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:12px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--warn);margin-bottom:8px">⚡ Автообновление данных</div>
+      <div style="font-size:12px;color:var(--fg2);line-height:1.6">
+        Дашборд <strong style="color:var(--fg)">не обновляется автоматически</strong> при изменении Google Sheets — данные вшиты статически в момент публикации.<br>
+        <strong style="color:var(--good)">Настроено автообновление через Claude scheduled task:</strong> раз в сутки Claude читает «Оборот — база 2026» из Google Sheets, пересчитывает все показатели и публикует новую версию артефакта по той же ссылке. Если задача включена — ссылка всегда актуальна.
+      </div>
+      <div style="margin-top:10px;padding:8px 10px;background:var(--bg-card);border-radius:6px;font-size:11px;font-family:'Fira Code',monospace;color:var(--fg3)">
+        Источник данных: Google Sheets «WB ИУ» → лист «Оборот — база 2026» (A4:E325)<br>
+        Поле Тотал (столбец E) → сумма по месяцам → показатели дашборда<br>
+        Нарастающий итог: точные значения каждые 5 дней (65 точек факт + 9 точек прогноз)
+      </div>
+    </div>
+    <!-- Как обновить вручную -->
+    <div style="background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:12px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:8px">🔄 Ручное обновление</div>
+      <ol style="font-size:12px;color:var(--fg2);line-height:1.8;padding-left:18px">
+        <li>Добавьте новые строки в лист <strong style="color:var(--fg)">«Оборот — база 2026»</strong> (формат: дата ДД.ММ.ГГГГ · оборот с «₽» и пробелами)</li>
+        <li>Откройте этот чат в Claude и напишите: <strong style="color:var(--fg)">«Обнови дашборд по актуальным данным»</strong></li>
+        <li>Claude прочитает Sheets, пересчитает все метрики и опубликует новую версию по той же ссылке</li>
+      </ol>
+    </div>
+    <!-- Changelog -->
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--fg3);margin-bottom:8px">История изменений</div>
+    <table style="width:100%;border-collapse:collapse;font-size:11px">
+      <thead>
+        <tr style="border-bottom:1px solid var(--border)">
+          <th style="text-align:left;padding:5px 8px;color:var(--fg3);font-weight:600;white-space:nowrap">Дата</th>
+          <th style="text-align:left;padding:5px 8px;color:var(--fg3);font-weight:600">Что сделано</th>
+          <th style="text-align:left;padding:5px 8px;color:var(--fg3);font-weight:600;white-space:nowrap">Данные по</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:5px 8px;color:var(--fg3);white-space:nowrap;font-family:'Fira Code',monospace">26.11.2026 (комбо)</td>
+          <td style="padding:5px 8px;color:var(--fg2);line-height:1.5">Два отдельных чарта (Оборот по месяцам + Нарастающий итог) объединены в один комбо-чарт: столбики факт/прогноз — правая ось млн ₽; линии нарастающего итога — левая ось млрд ₽. Прогноз комбо-чарта динамически пересчитывается по ползункам СПП и ДРР. buildCumChart и buildMonthlyChart заменены на buildComboChart + buildComboProjection + buildComboFcData.</td>
+          <td style="padding:5px 8px;color:var(--fg3);white-space:nowrap;font-family:'Fira Code',monospace">25.11.2026</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:5px 8px;color:var(--fg3);white-space:nowrap;font-family:'Fira Code',monospace">26.11.2026</td>
+          <td style="padding:5px 8px;color:var(--fg2);line-height:1.5">Автообновление 26.11: данные по 25.11.2026. ACT_CUM Total: 1 061 008 029 ₽ (МГ 858 730 287, ГЛ 157 172 399, ЗА 45 105 343). Прогноз 100% плана — не достигается к 31.12.2026 (прогноз 1 089 945 359 ₽ &lt; план 1 090 400 169 ₽, разрыв ~455 тыс ₽). novFcPart=6.099 млн, decFc=22.839 млн, novTotal=41.879 млн.</td>
+          <td style="padding:5px 8px;color:var(--fg3);white-space:nowrap;font-family:'Fira Code',monospace">25.11.2026</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:5px 8px;color:var(--fg3);white-space:nowrap;font-family:'Fira Code',monospace">26.11.2026 (ранее)</td>
+          <td style="padding:5px 8px;color:var(--fg2);line-height:1.5">Блок «Оборот по месяцам» разбит на две карточки: (1) стек-бар факт + прогноз по месяцам — без нарастающего итога; (2) новая карточка «Нарастающий итог 2026» — линейный график факт (1 янв – 24 ноя, точки каждые 5 дней) + пунктирный прогноз до 31 дек, горизонталь 100% плана, янтарный маркер ✦ при пересечении плана ≈ 18.12.2026. Тултип: абсолютное значение и % плана на каждую дату.</td>
+          <td style="padding:5px 8px;color:var(--fg3);white-space:nowrap;font-family:'Fira Code',monospace">24.11.2026</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:5px 8px;color:var(--fg3);white-space:nowrap;font-family:'Fira Code',monospace">25.11.2026</td>
+          <td style="padding:5px 8px;color:var(--fg2);line-height:1.5">Автообновление 25.11: данные по 24.11.2026. Новая модель: base = 0.70×avg28 + 0.30×trend56_adj (trend56 скорректирован на пик 1–6 окт). МГ 932804, ГЛ 161948, ЗА 156947 ₽/день. Прогноз: novFcPart=7.510 млн, decFc=38.803 млн, novTotal=42.030 млн. Нарастающий прогноз: ноябрь 1067.260 млн, декабрь 1106.063 млн. 100% плана ≈ 18.12.2026.</td>
+          <td style="padding:5px 8px;color:var(--fg3);white-space:nowrap;font-family:'Fira Code',monospace">24.11.2026</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:5px 8px;color:var(--fg3);white-space:nowrap;font-family:'Fira Code',monospace">24.11.2026</td>
+          <td style="padding:5px 8px;color:var(--fg2);line-height:1.5">Автообновление: данные по 23.11.2026. Пересчитан прогноз: novFcPart=6.052 млн, decFc=24.640 млн, novTotal=39.290 млн. Нарастающий прогноз: ноябрь 1064.518 млн, декабрь 1089.158 млн.</td>
+          <td style="padding:5px 8px;color:var(--fg3);white-space:nowrap;font-family:'Fira Code',monospace">23.11.2026</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:5px 8px;color:var(--fg3);white-space:nowrap;font-family:'Fira Code',monospace">18.11.2026</td>
+          <td style="padding:5px 8px;color:var(--fg2);line-height:1.5">Добавлен блок «Оборот по месяцам» (стек-бар: факт + прогноз остатка, нарастающий итог, план 100% на правой оси). Данные исправлены: реальные суммы из Google Sheets вместо модельных (октябрь 76,5 млн вместо ошибочных 101,4 млн). Добавлена инструкция по обновлению.</td>
+          <td style="padding:5px 8px;color:var(--fg3);white-space:nowrap;font-family:'Fira Code',monospace">17.11.2026</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:5px 8px;color:var(--fg3);white-space:nowrap;font-family:'Fira Code',monospace">ранее</td>
+          <td style="padding:5px 8px;color:var(--fg2);line-height:1.5">Запущен дашборд WB 2026: карточки факта по 3 магазинам + прогноз с моделью M_new (MAE 3.4%), линейный накопительный график янв–дек, слайдеры SPP/DRR, переключатель тем, выбор шрифта.</td>
+          <td style="padding:5px 8px;color:var(--fg3);white-space:nowrap;font-family:'Fira Code',monospace">15.11.2026</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div style="margin-top:16px;display:flex;justify-content:center;padding-bottom:4px">
+  <button onclick="downloadSelf()" style="display:inline-flex;align-items:center;gap:7px;background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:8px 18px;cursor:pointer;font-size:12px;font-weight:600;color:var(--fg2);font-family:inherit"
+    onmouseover="this.style.color='var(--fg)';this.style.borderColor='var(--accent)'"
+    onmouseout="this.style.color='var(--fg2)';this.style.borderColor='var(--border)'">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 1v8M4 6l3 3 3-3"/><path d="M2 11h10"/>
+    </svg>
+    Скачать HTML
+  </button>
+</div>
+<div style="margin-top:8px;font-size:11px;color:var(--fg3);text-align:center;padding-bottom:4px">
+  Данные на 25.11.2026 · Источник: Wildberries · Расчёт: Google Sheets ИУ
+</div>
+<script>
+function downloadSelf(){
+  try{
+    const html=document.documentElement.outerHTML;
+    const blob=new Blob(['<!doctype html>\n'+html],{type:'text/html'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;a.download='wb_dashboard_'+new Date().toISOString().slice(0,10)+'.html';
+    document.body.appendChild(a);a.click();
+    setTimeout(()=>{URL.revokeObjectURL(url);a.remove()},1000);
+  }catch(e){
+    alert('Скачивание недоступно в этом окне. Используйте кнопку ↓ рядом с артефактом.');
+  }
+}
+</script>
+
+</body></html>
